@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>NeoKonect | Infraestructura Tecnológica</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary": "#ffffff",
+            "secondary-container": "#316bf3",
+            "error": "#ba1a1a",
+            "primary-container": "#131b2e",
+            "tertiary-fixed": "#fcdeb5",
+            "on-tertiary-fixed": "#271901",
+            "inverse-on-surface": "#eaf1ff",
+            "surface-dim": "#cbdbf5",
+            "surface-container-highest": "#d3e4fe",
+            "inverse-primary": "#bec6e0",
+            "on-primary-container": "#7c839b",
+            "primary-fixed": "#dae2fd",
+            "on-background": "#0b1c30",
+            "surface-container": "#e5eeff",
+            "error-container": "#ffdad6",
+            "surface-variant": "#d3e4fe",
+            "on-secondary-fixed": "#00174b",
+            "outline-variant": "#c6c6cd",
+            "tertiary-fixed-dim": "#dec29a",
+            "surface-container-high": "#dce9ff",
+            "background": "#f8f9ff",
+            "on-error-container": "#93000a",
+            "surface": "#f8f9ff",
+            "primary": "#000000",
+            "surface-bright": "#f8f9ff",
+            "on-surface-variant": "#45464d",
+            "on-tertiary-container": "#98805d",
+            "on-primary-fixed": "#131b2e",
+            "tertiary": "#000000",
+            "on-tertiary-fixed-variant": "#574425",
+            "secondary-fixed-dim": "#b4c5ff",
+            "on-primary-fixed-variant": "#3f465c",
+            "on-surface": "#0b1c30",
+            "on-secondary-fixed-variant": "#003ea8",
+            "surface-container-lowest": "#ffffff",
+            "secondary": "#0051d5",
+            "tertiary-container": "#271901",
+            "on-secondary-container": "#fefcff",
+            "surface-tint": "#565e74",
+            "surface-container-low": "#eff4ff",
+            "on-error": "#ffffff",
+            "primary-fixed-dim": "#bec6e0",
+            "inverse-surface": "#213145",
+            "outline": "#76777d",
+            "on-secondary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed": "#dbe1ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter": "24px",
+            "margin-mobile": "16px",
+            "margin-desktop": "48px",
+            "base": "8px",
+            "container-max": "1280px"
+          },
+          "fontFamily": {
+            "headline-lg-mobile": ["Inter"],
+            "display-lg": ["Inter"],
+            "title-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-caps": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-lg": ["Inter"]
+          },
+          "fontSize": {
+            "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-background text-on-surface">
+  <!-- TopNavBar -->
+  <header class="bg-surface-container-lowest dark:bg-primary-container full-width top-0 sticky z-50 border-b border-outline-variant dark:border-outline">
+    <div class="flex justify-between items-center w-full px-margin-desktop h-16 max-w-container-max mx-auto">
+      <div class="font-headline-lg text-headline-lg font-bold text-primary dark:text-on-primary-fixed">NEOKONECT</div>
+      <nav class="hidden md:flex gap-8 items-center h-full">
+        <a class="font-body-sm text-body-sm text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary font-bold pb-1 Active: opacity-80 transition-opacity" href="index.html">INICIO</a>
+        <a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface hover:text-secondary transition-colors Active: opacity-80 transition-opacity" href="nosotros.html">NOSOTROS</a>
+        <a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface hover:text-secondary transition-colors Active: opacity-80 transition-opacity" href="catalogo.html">CATÁLOGO</a>
+        <a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface hover:text-secondary transition-colors Active: opacity-80 transition-opacity" href="servicios.html">SERVICIOS</a>
+        <a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface hover:text-secondary transition-colors Active: opacity-80 transition-opacity" href="contacto.html">CONTÁCTANOS</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <a href="carrito.html" class="p-2 hover:bg-surface-container-low dark:hover:bg-surface-container rounded-full transition-all text-secondary dark:text-secondary-fixed relative flex items-center justify-center">
+          <span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+          <span id="cart-badge" class="hidden absolute -top-1 -right-1 bg-error text-on-error text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        </a>
+        <button id="menu-btn" class="md:hidden p-2 hover:bg-surface-container-low rounded-full transition-all text-on-surface">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-surface-container-lowest border-b border-outline-variant absolute top-16 left-0 w-full z-45 flex flex-col p-6 gap-4 shadow-lg transition-all duration-300">
+    <a class="font-body-sm text-body-sm text-secondary font-bold" href="index.html">INICIO</a>
+    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="nosotros.html">NOSOTROS</a>
+    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="catalogo.html">CATÁLOGO</a>
+    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="servicios.html">SERVICIOS</a>
+    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="contacto.html">CONTÁCTANOS</a>
+  </div>
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="relative w-full h-[600px] flex items-center overflow-hidden bg-primary-container">
+      <div class="absolute inset-0 opacity-40">
+        <img alt="Data Center Infrastructure" class="w-full h-full object-cover" data-alt="A cinematic, wide-angle shot of a high-tech data center with rows of sleek black server racks and glowing blue LED indicators. The lighting is precise and architectural, emphasizing the industrial and utilitarian nature of structured cabling and network hardware. The environment is clean, professional, and reflects a modern B2B telecommunications identity using a palette of deep blues and monochromatic grays." src="media/images/hero_datacenter.jpg">
+      </div>
+      <div class="relative max-w-container-max mx-auto px-margin-desktop w-full text-on-primary">
+        <div class="max-w-2xl">
+          <h1 class="font-display-lg text-display-lg mb-4">Soluciones en Infraestructura Tecnológica</h1>
+          <p class="font-body-lg text-body-lg mb-8 text-on-primary-container">Especialistas en cableado estructurado, conectividad y soluciones para centros de datos de alta disponibilidad.</p>
+          <div class="flex gap-4">
+            <a class="bg-secondary text-on-primary px-8 py-4 font-bold text-body-lg rounded hover:bg-secondary-container transition-colors" href="catalogo.html">Ver Catálogo</a>
+            <a class="border border-on-primary text-on-primary px-8 py-4 font-bold text-body-lg rounded hover:bg-white/10 transition-colors" href="contacto.html">Solicitar Cotización</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Propuesta de Valor -->
+    <section class="py-20 bg-surface">
+      <div class="max-w-container-max mx-auto px-margin-desktop">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+          <!-- Bloque 1 -->
+          <div class="p-8 border border-outline-variant bg-surface-container-lowest flex flex-col gap-4">
+            <span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'wght' 300;">verified_user</span>
+            <h3 class="font-title-md text-title-md">Calidad Garantizada</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Productos certificados bajo estándares internacionales para asegurar la máxima durabilidad de su red.</p>
+          </div>
+          <!-- Bloque 2 -->
+          <div class="p-8 border border-outline-variant bg-surface-container-lowest flex flex-col gap-4">
+            <span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'wght' 300;">support_agent</span>
+            <h3 class="font-title-md text-title-md">Soporte Especializado</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Ingenieros listos para asesorar su proyecto de infraestructura desde la concepción hasta la entrega.</p>
+          </div>
+          <!-- Bloque 3 -->
+          <div class="p-8 border border-outline-variant bg-surface-container-lowest flex flex-col gap-4">
+            <span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'wght' 300;">local_shipping</span>
+            <h3 class="font-title-md text-title-md">Distribución Nacional</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Logística optimizada para entregas rápidas y seguras en cualquier punto del territorio nacional.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Categorías Destacadas (Bento Grid Style) -->
+    <section class="py-20 bg-surface-container-low">
+      <div class="max-w-container-max mx-auto px-margin-desktop">
+        <div class="flex justify-between items-end mb-12">
+          <div>
+            <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Nuestra Oferta</span>
+            <h2 class="font-headline-lg text-headline-lg mt-2">Categorías Principales</h2>
+          </div>
+          <a class="text-secondary font-bold font-body-sm flex items-center gap-2 hover:underline" href="catalogo.html">Ver todas <span class="material-symbols-outlined">arrow_forward</span></a>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter h-[600px] md:h-[500px]">
+          <div class="md:col-span-2 relative group overflow-hidden border border-outline-variant">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A high-resolution close-up of professional network equipment including organized Ethernet cables and patch panels in a server room. The composition is clean and technical, emphasizing precision and structured order. The color palette features metallic grays and deep blues, perfectly aligning with a B2B professional aesthetic for infrastructure technology." src="media/images/category_networks.jpg">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary-container to-transparent opacity-80"></div>
+            <div class="absolute bottom-0 left-0 p-8">
+              <h3 class="font-title-md text-title-md text-on-primary">Conectividad y Redes</h3>
+              <p class="text-on-primary-container font-body-sm mt-2">Cables UTP, FO y accesorios.</p>
+            </div>
+          </div>
+          
+          <div class="relative group overflow-hidden border border-outline-variant">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A tall, professional server cabinet or rack unit standing in a modern IT facility. The lighting is cool and industrial, highlighting the modular construction and technical specs of the cabinet. The mood is authoritative and stable, designed for procurement professionals looking for reliable infrastructure hardware." src="media/images/category_cabinets.jpg">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary-container to-transparent opacity-80"></div>
+            <div class="absolute bottom-0 left-0 p-8">
+              <h3 class="font-title-md text-title-md text-on-primary">Gabinetes</h3>
+              <p class="text-on-primary-container font-body-sm mt-2">Racks y soluciones de pared.</p>
+            </div>
+          </div>
+          
+          <div class="relative group overflow-hidden border border-outline-variant">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A focused shot of electrical components and technical infrastructure systems used in telecommunications. The image emphasizes the utilitarian and professional nature of the equipment, with a clean and bright lighting style that fits a modern minimalist design system. The colors are predominantly white, slate, and blue." src="media/images/category_tools.jpg">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary-container to-transparent opacity-80"></div>
+            <div class="absolute bottom-0 left-0 p-8">
+              <h3 class="font-title-md text-title-md text-on-primary">Herramientas</h3>
+              <p class="text-on-primary-container font-body-sm mt-2">Equipos de medición y corte.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Servicios Resumidos -->
+    <section class="py-20 bg-surface">
+      <div class="max-w-container-max mx-auto px-margin-desktop">
+        <div class="flex flex-col md:flex-row gap-16 items-center">
+          <div class="w-full md:w-1/2">
+            <img class="w-full aspect-square object-cover border-8 border-surface-container shadow-sm" data-alt="A detailed, technical photograph showing a group of IT professionals working on a structured cabling project in a modern office environment. The focus is on the precision and quality of the installation work, with a clean and professional atmosphere. The lighting is soft and natural, emphasizing a utilitarian yet high-end service delivery model." src="media/images/services_cabling.jpg">
+          </div>
+          <div class="w-full md:w-1/2">
+            <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Soluciones Proactivas</span>
+            <h2 class="font-headline-lg text-headline-lg mt-4 mb-6">Expertos en Soluciones de Red</h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">No solo suministramos componentes; diseñamos ecosistemas de datos resilientes. Desde la auditoría de su infraestructura actual hasta la implementación de soluciones de fibra óptica de última generación.</p>
+            <div class="space-y-4 mb-10">
+              <div class="flex gap-4 items-start">
+                <span class="material-symbols-outlined text-secondary mt-1">settings_input_component</span>
+                <div>
+                  <h4 class="font-bold font-body-sm">Diseño de Redes</h4>
+                  <p class="text-on-surface-variant font-body-sm">Planificación estratégica de cableado lógico y físico.</p>
+                </div>
+              </div>
+              <div class="flex gap-4 items-start">
+                <span class="material-symbols-outlined text-secondary mt-1">bolt</span>
+                <div>
+                  <h4 class="font-bold font-body-sm">Optimización de Energía</h4>
+                  <p class="text-on-surface-variant font-body-sm">Sistemas UPS y distribución de energía crítica.</p>
+                </div>
+              </div>
+            </div>
+            <a class="inline-flex items-center gap-2 border-b-2 border-primary py-1 font-bold hover:text-secondary hover:border-secondary transition-all" href="servicios.html">
+              Explorar Servicios de Ingeniería <span class="material-symbols-outlined">arrow_right_alt</span>
+            </a>
+          </div>
+        </div>
+      </d  <!-- Footer Global -->
+  <footer class="bg-surface-container-low dark:bg-primary-container full-width bottom-0 border-t border-outline-variant dark:border-outline">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-gutter px-margin-desktop py-12 max-w-container-max mx-auto">
+      <div class="flex flex-col gap-4">
+        <div class="font-title-md text-title-md font-bold text-primary dark:text-on-primary-fixed">NEOKONECT</div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-primary-fixed-variant">Proveedor líder en infraestructura tecnológica y telecomunicaciones para el sector corporativo.</p>
+      </div>
+      <div class="flex flex-col gap-4">
+        <h4 class="font-label-caps text-label-caps text-primary dark:text-primary-fixed">ENLACES RÁPIDOS</h4>
+        <div class="flex flex-col gap-2">
+          <a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-secondary hover:underline transition-all" href="privacidad.html">Políticas de Privacidad</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-secondary hover:underline transition-all" href="terminos.html">Términos de Servicio</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-secondary hover:underline transition-all" href="soporte.html">Soporte Técnico</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-secondary hover:underline transition-all" href="contacto.html#sedes">Sedes</a>
+        </div>
+      </div>
+      <div class="flex flex-col gap-4">
+        <h4 class="font-label-caps text-label-caps text-primary dark:text-primary-fixed">CONTACTO</h4>
+        <div class="flex flex-col gap-2 text-body-sm text-on-surface-variant dark:text-on-primary-fixed-variant">
+          <p class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">mail</span> ventas@neokonect.com
+          </p>
+          <p class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">call</span> +51 1 555-0199
+          </p>
+          <p class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">location_on</span> Lima, Perú
+          </p>
+        </div>
+      </div>
+      <div class="flex flex-col gap-4">
+        <h4 class="font-label-caps text-label-caps text-primary dark:text-primary-fixed">REDES SOCIALES</h4>
+        <div class="flex flex-col gap-2">
+          <a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-secondary hover:underline transition-all flex items-center gap-2" href="#">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+            LinkedIn
+          </a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-secondary hover:underline transition-all flex items-center gap-2" href="#">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0 3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            Instagram
+          </a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-secondary hover:underline transition-all flex items-center gap-2" href="#">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+            Facebook
+          </a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-secondary hover:underline transition-all flex items-center gap-2" href="#">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.86-.74-3.94-1.74-.22-.2-.43-.43-.63-.67-.07 2.62-.04 5.24-.04 7.86-.02 1.34-.23 2.71-.87 3.89-.96 1.83-2.9 3.09-4.98 3.32-2.61.35-5.38-.81-6.73-3.07-1.37-2.23-1.04-5.31.75-7.14 1.42-1.48 3.59-2.12 5.59-1.66v4.07c-1.22-.38-2.62-.06-3.48.88-.93.97-1.01 2.61-.17 3.69.75.99 2.11 1.4 3.3 1.05 1.1-.3 1.87-1.34 1.89-2.5.02-3.43.01-6.87.01-10.3 0-1.57-.02-3.14.01-4.71z"/></svg>
+            TikTok
+          </a>
+        </div>
+      </div>
+      <div class="flex flex-col gap-4">
+        <h4 class="font-label-caps text-label-caps text-primary dark:text-primary-fixed">BOLETÍN</h4>
+        <p class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-primary-fixed-variant">Reciba actualizaciones sobre nuevos productos y tecnologías.</p>
+        <div class="flex">
+          <input class="bg-surface-container-lowest border-outline-variant border px-4 py-2 w-full font-body-sm rounded-l focus:ring-2 focus:ring-secondary-container focus:border-secondary outline-none text-on-surface" placeholder="Su email" type="email">
+          <button class="bg-secondary text-on-primary px-4 py-2 rounded-r hover:bg-secondary-container transition-colors material-symbols-outlined">send</button>
+        </div>
+      </div>
+    </div>
+    <div class="px-margin-desktop py-6 border-t border-outline-variant/30 text-center">
+      <span class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-primary-fixed-variant">
+        © 2026 NeoKonect. Todos los derechos reservados.
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Cart badge updater
+    function updateCartBadge() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const count = cart.reduce((acc, item) => acc + item.quantity, 0);
+      const badge = document.getElementById('cart-badge');
+      if (badge) {
+        if (count > 0) {
+          badge.textContent = count;
+          badge.classList.remove('hidden');
+        } else {
+          badge.classList.add('hidden');
+        }
+      }
+    }
+    updateCartBadge();
+  </script>
+</body>
+</html>
