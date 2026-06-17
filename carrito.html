@@ -291,6 +291,10 @@
     </div>
   </footer>
 
+  <!-- Supabase Integration -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-client.js"></script>
+
   <script>
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -398,18 +402,54 @@
       }
     }
 
-    function submitQuoteRequest(event) {
+    async function submitQuoteRequest(event) {
       event.preventDefault();
+      
+      const submitBtn = event.target.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+
       const company = document.getElementById('client_company').value;
+      const ruc = document.getElementById('client_ruc').value;
       const contact = document.getElementById('client_name').value;
+      const phone = document.getElementById('client_phone').value;
       const email = document.getElementById('client_email').value;
-      
-      alert('¡Requerimiento Recibido!\n\nSe ha generado la solicitud de cotización formal para ' + company + '.\nUn especialista técnico se pondrá en contacto con ' + contact + ' en el correo ' + email + ' con la cotización formal de los componentes estructurados.');
-      
-      // Clear cart
-      localStorage.setItem('cart', '[]');
-      updateCartBadge();
-      renderCart();
+      const comments = document.getElementById('client_project').value;
+      const cart = getCart();
+
+      try {
+        if (!window.supabaseClient) {
+          throw new Error('Cliente de Supabase no inicializado');
+        }
+
+        const { error } = await window.supabaseClient
+          .from('quote_requests')
+          .insert([{
+            name: contact,
+            email,
+            company,
+            phone,
+            comments,
+            ruc,
+            items: cart
+          }]);
+
+        if (error) throw error;
+
+        alert('¡Requerimiento Recibido!\n\nSe ha generado la solicitud de cotización formal para ' + company + '.\nUn especialista técnico se pondrá en contacto con ' + contact + ' en el correo ' + email + ' con la cotización formal de los componentes estructurados.');
+        
+        // Clear cart
+        localStorage.setItem('cart', '[]');
+        updateCartBadge();
+        renderCart();
+      } catch (err) {
+        console.error('Error al enviar cotización:', err);
+        alert('Hubo un error al registrar tu cotización. Por favor, inténtalo de nuevo.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      }
     }
 
     // Initial render

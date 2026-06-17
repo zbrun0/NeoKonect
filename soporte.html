@@ -224,7 +224,7 @@
           <span class="material-symbols-outlined text-secondary">support_agent</span> Crear Ticket de Soporte
         </h2>
 
-        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Ticket de soporte registrado con éxito. Su número de seguimiento es NK-TKT-' + Math.floor(Math.random() * 9000 + 1000) + '. Nos comunicaremos a su correo corporativo.'); this.reset();">
+        <form id="ticket-form" class="space-y-4">
           <div class="grid grid-cols-2 gap-4">
             <div class="flex flex-col gap-2">
               <label class="font-label-caps text-label-caps text-on-surface-variant" for="name">Nombre</label>
@@ -350,6 +350,10 @@
     </div>
   </footer>
 
+  <!-- Supabase Integration -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-client.js"></script>
+
   <script>
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -399,6 +403,60 @@
       }
     }
     updateCartBadge();
+
+    // Ticket Form Submission to Supabase
+    const ticketForm = document.getElementById('ticket-form');
+    if (ticketForm) {
+      ticketForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const submitBtn = ticketForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+
+        const name = document.getElementById('name').value;
+        const company = document.getElementById('company').value;
+        const email = document.getElementById('email').value;
+        const category = document.getElementById('category').value;
+        const priority = document.getElementById('priority').value;
+        const subject = document.getElementById('subject').value;
+        const description = document.getElementById('description').value;
+
+        // Generate ticket tracking number
+        const ticketNumber = 'NK-TKT-' + Math.floor(Math.random() * 90000 + 10000);
+
+        try {
+          if (!window.supabaseClient) {
+            throw new Error('Cliente de Supabase no inicializado');
+          }
+
+          const { error } = await window.supabaseClient
+            .from('support_tickets')
+            .insert([{
+              ticket_number: ticketNumber,
+              name,
+              company,
+              email,
+              category,
+              priority,
+              subject,
+              description
+            }]);
+
+          if (error) throw error;
+
+          alert(`Ticket de soporte registrado con éxito.\nSu número de seguimiento es ${ticketNumber}.\nNos comunicaremos a su correo corporativo.`);
+          ticketForm.reset();
+        } catch (err) {
+          console.error('Error al enviar ticket:', err);
+          alert('Hubo un error al registrar tu ticket de soporte. Por favor, inténtalo de nuevo.');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      });
+    }
   </script>
 </body>
 </html>
