@@ -357,241 +357,221 @@
   <script src="supabase-client.js"></script>
 
   <script>
-    // Real SATRA Catalog Products list
     const LOCAL_PRODUCTS = [
+      // Cableado de Cobre
       {
-        name: "Cable U/UTP Cat6 LSZH 4PX24AWG - SATRA",
-        sku: "SA-UTP-C6-LSZH",
+        name: "Cable U/UTP Cat6 LSZH 4PX24AWG",
+        sku: "SAT-UTP-C6-LSZH",
         brand: "SATRA",
-        image_url: "media/images/product_cat6_cable.webp",
-        description: "Cable de cobre categoría 6 de cuatro pares, chaqueta LSZH (baja emisión de humos y cero halógenos). Calibre 24AWG. Ideal para tendidos horizontales de datos y telefonía.",
-        category: "Cableado de Cobre",
-        subcategory: "SATRA"
+        image_url: "imagenes-productos/satra/cable-utp-cat6-lszh-4px24awg.png",
+        description: "Cable U/UTP Categoría 6 con chaqueta LSZH (Low Smoke Zero Halogen) retardante de llama y libre de halógenos. Ideal para instalaciones de cableado estructurado de alta densidad en interiores, oficinas y centros de datos.",
+        category: "Cableado de Cobre"
       },
       {
-        name: "Cable U/UTP Cat 5e CM 4PX24AWG - SATRA",
-        sku: "SA-UTP-C5E-CM",
+        name: "Cable U/UTP Cat5e CM 4PX24AWG",
+        sku: "SAT-UTP-C5E-CM",
         brand: "SATRA",
-        image_url: "media/images/product_cat6_cable.webp",
-        description: "Cable de cobre categoría 5e U/UTP de 4 pares con chaqueta CM retardante a la flama para uso en ductos internos. Calibre 24AWG.",
-        category: "Cableado de Cobre",
-        subcategory: "SATRA"
+        image_url: "imagenes-productos/satra/cable-utp-cat5e-cm-4px24awg.png",
+        description: "Cable U/UTP Categoría 5e con chaqueta CM para uso general en comunicaciones. Conductor de cobre sólido de 24 AWG, ideal para transmisión de datos de alta velocidad en redes LAN estándar.",
+        category: "Cableado de Cobre"
       },
       {
-        name: "Cable U/UTP Cat6 Exterior 4PX23AWG - SATRA",
-        sku: "SA-UTP-C6-EXT",
+        name: "Cable U/UTP Cat6 Exterior 4PX23AWG",
+        sku: "SAT-UTP-C6-EXT",
         brand: "SATRA",
-        image_url: "media/images/product_cat6_cable.webp",
-        description: "Cable de cobre categoría 6 U/UTP para exteriores, chaqueta de polietileno (PE) negra resistente a rayos UV. Calibre 23AWG.",
-        category: "Cableado de Cobre",
-        subcategory: "SATRA"
+        image_url: "imagenes-productos/satra/cable-utp-cat6-exterior-4px23awg.png",
+        description: "Cable U/UTP Categoría 6 diseñado para aplicaciones exteriores. Chaqueta resistente a rayos UV y condiciones climáticas extremas. Conductor de 23 AWG para máxima estabilidad de señal y durabilidad.",
+        category: "Cableado de Cobre"
       },
       {
-        name: "Cable U/FTP Cat6A LSZH 4PX23AWG - SATRA",
-        sku: "SA-FTP-C6A-LSZH",
+        name: "Cable U/FTP Cat6A LSZH 4PX23AWG",
+        sku: "SAT-FTP-C6A-LSZH",
         brand: "SATRA",
-        image_url: "media/images/product_cat6_cable.webp",
-        description: "Cable de cobre categoría 6A U/FTP de 4 pares con blindaje individual de aluminio por par y chaqueta LSZH. Calibre 23AWG para transmisiones de 10Gbps.",
-        category: "Cableado de Cobre",
-        subcategory: "SATRA"
+        image_url: "imagenes-productos/satra/cable-uftp-cat6a-lszh-4px23awg.png",
+        description: "Cable U/FTP Categoría 6A apantallado por par (Foil Over Twisted Pair) con chaqueta LSZH. Soporta transmisiones de hasta 10 Gbps, minimizando la diafonía y el ruido externo para redes críticas.",
+        category: "Cableado de Cobre"
+      },
+      // Gabinetes de Piso
+      {
+        name: "Gabinete de Piso 42 RU",
+        sku: "SAT-GAB-P42RU",
+        brand: "SATRA",
+        image_url: "imagenes-productos/satra/gabinete-piso-42ru.png",
+        description: "Gabinete de piso estándar de 42 RU diseñado para albergar servidores y equipos de red de alto rendimiento. Puerta frontal microperforada para flujo de aire optimizado, paneles laterales desmontables y estructura robusta de acero laminado en frío.",
+        category: "Gabinete de Piso"
       },
       {
-        name: "Gabinete de piso 42 RU SATRA",
-        sku: "SA-GP-42RU",
+        name: "Gabinete de Piso 38 RU",
+        sku: "SAT-GAB-P38RU",
         brand: "SATRA",
-        image_url: "media/images/sidebar_cabinets.webp",
-        description: "Gabinete de piso de 42 Unidades de Rack (RU). Estructura metálica rígida, puerta de vidrio templado con cerradura y paneles laterales desmontables.",
-        category: "Gabinete de Piso",
-        subcategory: "SATRA"
+        image_url: "imagenes-productos/satra/gabinete-piso-38ru.png",
+        description: "Gabinete de piso de 38 RU con diseño estructural premium. Excelente gestión de cableado vertical y horizontal. Puertas frontal y posterior con cerradura de seguridad, perfecto para salas de telecomunicaciones medianas.",
+        category: "Gabinete de Piso"
       },
       {
-        name: "Gabinete de piso 38 RU SATRA",
-        sku: "SA-GP-38RU",
+        name: "Gabinete de Piso 37 RU",
+        sku: "SAT-GAB-P37RU",
         brand: "SATRA",
-        image_url: "media/images/sidebar_cabinets.webp",
-        description: "Gabinete de piso de 38 Unidades de Rack (RU). Excelente solución para organizar servidores y equipamiento de TI pesado.",
-        category: "Gabinete de Piso",
-        subcategory: "SATRA"
+        image_url: "imagenes-productos/satra/gabinete-piso-37ru.png",
+        description: "Gabinete de piso compacto de 37 RU. Combina espacio óptimo de almacenamiento con una huella eficiente. Estructura modular reforzada y ventilación pasiva y activa preinstalable.",
+        category: "Gabinete de Piso"
       },
       {
-        name: "Gabinete de piso 37 RU SATRA",
-        sku: "SA-GP-37RU",
+        name: "Gabinete de Piso 24 RU",
+        sku: "SAT-GAB-P24RU",
         brand: "SATRA",
-        image_url: "media/images/sidebar_cabinets.webp",
-        description: "Gabinete de piso de 37 Unidades de Rack (RU). Equipado con ruedas para fácil desplazamiento y rieles de montaje ajustables.",
-        category: "Gabinete de Piso",
-        subcategory: "SATRA"
+        image_url: "imagenes-productos/satra/gabinete-piso-24ru.png",
+        description: "Gabinete de piso de media altura (24 RU) ideal para oficinas secundarias, laboratorios o centros de distribución de cableado pequeños. Fácil acceso y movilidad con ruedas de alta resistencia.",
+        category: "Gabinete de Piso"
+      },
+      // Gabinetes de Pared
+      {
+        name: "Gabinete de Pared 18 RU para Equipos TI",
+        sku: "SAT-GAB-W18RU",
+        brand: "SATRA",
+        image_url: "imagenes-productos/satra/gabinete-pared-18ru.png",
+        description: "Gabinete de pared de 18 RU optimizado para equipos de TI e infraestructura de telecomunicaciones activa. Puerta frontal de vidrio templado con cerradura y perfiles de montaje ajustables.",
+        category: "Gabinete de Pared"
       },
       {
-        name: "Gabinete de piso 24 RU SATRA",
-        sku: "SA-GP-24RU",
+        name: "Gabinete de Pared 12 RU para Equipos TI",
+        sku: "SAT-GAB-W12RU",
         brand: "SATRA",
-        image_url: "media/images/sidebar_cabinets.webp",
-        description: "Gabinete de piso compacto de 24 Unidades de Rack (RU) para oficinas medianas o nodos de distribución secundarios.",
-        category: "Gabinete de Piso",
-        subcategory: "SATRA"
+        image_url: "imagenes-productos/satra/gabinete-pared-12ru.png",
+        description: "Gabinete de pared compacto de 12 RU. Ideal para conmutadores, paneles de parcheo y routers en oficinas y sucursales. Fácil montaje y excelente acceso lateral para mantenimiento rápido.",
+        category: "Gabinete de Pared"
       },
       {
-        name: "Gabinete de pared 18 RU para equipos TI - SATRA",
-        sku: "SA-GWA-18RU",
+        name: "Gabinete de Pared 8 RU",
+        sku: "SAT-GAB-W8RU",
         brand: "SATRA",
-        image_url: "media/images/product_rack_shelf.webp",
-        description: "Gabinete mural de pared de 18 Unidades de Rack (RU). Diseño de doble cuerpo con puerta de vidrio y acceso trasero para mantenimiento rápido.",
-        category: "Gabinete de Pared",
-        subcategory: "SATRA"
+        image_url: "imagenes-productos/satra/gabinete-pared-8ru.png",
+        description: "Gabinete de pared de 8 RU diseñado para instalaciones compactas y seguras. Paneles laterales desmontables y ranuras de ventilación superiores e inferiores.",
+        category: "Gabinete de Pared"
       },
       {
-        name: "Gabinete de pared 12 RU para equipos TI - SATRA",
-        sku: "SA-GWA-12RU",
+        name: "Gabinete de Pared 6 RU para Equipos TI",
+        sku: "SAT-GAB-W6RU",
         brand: "SATRA",
-        image_url: "media/images/product_rack_shelf.webp",
-        description: "Gabinete mural de pared de 12 Unidades de Rack (RU). Ideal para switches y paneles de parcheo en oficinas o departamentos.",
-        category: "Gabinete de Pared",
-        subcategory: "SATRA"
+        image_url: "imagenes-productos/satra/gabinete-pared-6ru.png",
+        description: "Mini gabinete de pared de 6 RU. La solución perfecta para nodos de red residenciales, pequeñas empresas o ubicaciones con espacio sumamente limitado.",
+        category: "Gabinete de Pared"
+      },
+      // Accesorios para Gabinetes
+      {
+        name: "Bandeja Simple",
+        sku: "SAT-ACC-BS",
+        brand: "SATRA",
+        image_url: "imagenes-productos/satra/bandeja-simple.png",
+        description: "Bandeja fija simple para montaje en rack de 19 pulgadas. Fabricada en acero reforzado con ranuras de ventilación para evitar el sobrecatentamiento de los equipos de red no rackeables.",
+        category: "Accesorios para Gabinetes"
       },
       {
-        name: "Gabinete de pared 8 RU SATRA",
-        sku: "SA-GWA-8RU",
+        name: "Organizador Horizontal de Alta Densidad",
+        sku: "SAT-ACC-OHAD",
         brand: "SATRA",
-        image_url: "media/images/product_rack_shelf.webp",
-        description: "Gabinete mural de pared de 8 Unidades de Rack (RU). Ahorro extremo de espacio con puerta de vidrio templado y cerradura.",
-        category: "Gabinete de Pared",
-        subcategory: "SATRA"
+        image_url: "imagenes-productos/satra/organizador-horizontal-alta-densidad.png",
+        description: "Organizador de cableado horizontal de alta densidad de 1 o 2 RU para racks de 19 pulgadas. Ayuda a organizar y guiar los cables de parcheo de forma ordenada, reduciendo la tensión mecánica y facilitando el mantenimiento.",
+        category: "Accesorios para Gabinetes"
       },
       {
-        name: "Gabinete de pared de 6 RU para equipos TI - SATRA",
-        sku: "SA-GWA-6RU",
+        name: "Kit de Ventiladores para Gabinetes",
+        sku: "SAT-ACC-KVG",
         brand: "SATRA",
-        image_url: "media/images/product_rack_shelf.webp",
-        description: "Gabinete mural de pared compacto de 6 Unidades de Rack (RU) para hubs locales, routers y sistemas de cableado residencial.",
-        category: "Gabinete de Pared",
-        subcategory: "SATRA"
+        image_url: "imagenes-productos/satra/kit-ventiladores-gabinete.png",
+        description: "Kit de ventilación forzada para gabinetes de equipos de TI. Equipado con ventiladores silenciosos de alta velocidad para mejorar el flujo térmico dentro del rack y proteger equipos sensibles.",
+        category: "Accesorios para Gabinetes"
       },
       {
-        name: "Bandeja Simple - SATRA",
-        sku: "SA-ACC-BJS",
+        name: "Power Rack Tomacorriente para Rack o Gabinete",
+        sku: "SAT-ACC-PRT",
         brand: "SATRA",
-        image_url: "media/images/product_rack_shelf.webp",
-        description: "Bandeja fija para gabinete de 1U. Fabricada en acero laminado en frío, terminación en pintura negra microtexturizada.",
-        category: "Accesorios para Gabinetes",
-        subcategory: "SATRA"
+        image_url: "imagenes-productos/satra/power-rack-tomacorriente.png",
+        description: "Unidad de distribución de energía (PDU) para rack de 19 pulgadas. Cuenta con múltiples tomacorrientes con interruptor de encendido/apagado y protección contra sobretensiones.",
+        category: "Accesorios para Gabinetes"
+      },
+      // Canaletas
+      {
+        name: "Canaleta de Pared con Adhesivo",
+        sku: "SAT-CAN-PA",
+        brand: "SATRA",
+        image_url: "imagenes-productos/satra/canaleta-pared-adhesiva.png",
+        description: "Canaleta plástica de pared de PVC de alta resistencia con cinta adhesiva de doble contacto para una instalación rápida y estética sin necesidad de taladrar. Ideal para cableado residencial y comercial ligero.",
+        category: "Canaletas"
       },
       {
-        name: "Organizador Horizontal - Alta densidad - SATRA",
-        sku: "SA-ACC-ORGH",
+        name: "Canaleta de Pared",
+        sku: "SAT-CAN-P",
         brand: "SATRA",
-        image_url: "media/images/product_rack_shelf.webp",
-        description: "Organizador horizontal de cables de 1U con tapa para alta densidad. Organiza parches de fibra óptica o cables de red en racks de 19\".",
-        category: "Accesorios para Gabinetes",
-        subcategory: "SATRA"
+        image_url: "imagenes-productos/satra/canaleta-pared.png",
+        description: "Canaleta de pared robusta de PVC autoextinguible. Diseñada para proteger y enrutar de forma segura los cables de energía y datos en entornos de oficina y comerciales.",
+        category: "Canaletas"
       },
       {
-        name: "Kit de ventiladores para gabinetes de equipos TI - SATRA",
-        sku: "SA-ACC-KITV",
+        name: "Canaleta de Piso",
+        sku: "SAT-CAN-PI",
         brand: "SATRA",
-        image_url: "media/images/product_rack_shelf.webp",
-        description: "Unidad extractora de aire compuesta por ventiladores silenciosos de alto flujo para enfriar componentes activos.",
-        category: "Accesorios para Gabinetes",
-        subcategory: "SATRA"
+        image_url: "imagenes-productos/satra/canaleta-piso.png",
+        description: "Canaleta plástica de piso con diseño curvo de bajo perfil resistente al tránsito peatonal constante. Protege cables contra pisadas y evita tropiezos accidentales en zonas de paso.",
+        category: "Canaletas"
+      },
+      // Accesorios para Canaletas
+      {
+        name: "Accesorios para Canaletas",
+        sku: "SAT-CAN-ACC01",
+        brand: "SATRA",
+        image_url: "imagenes-productos/satra/accesorio-canaleta-1.png",
+        description: "Accesorios modulares de conexión para canaletas de PVC (ángulos planos, internos, externos, uniones y tapas finales) que garantizan un acabado estético, uniforme y seguro del cableado estructurado.",
+        category: "Accesorios para Canaletas"
       },
       {
-        name: "Power Rack Tomacorriente para racks o gabinete - SATRA",
-        sku: "SA-ACC-PDU",
+        name: "Accesorios para Canaletas",
+        sku: "SAT-CAN-ACC02",
         brand: "SATRA",
-        image_url: "media/images/product_rack_shelf.webp",
-        description: "Regleta multicontacto (PDU) de 8 tomas universales de 15A con switch luminoso y disyuntor térmico de seguridad. 1U.",
-        category: "Accesorios para Gabinetes",
-        subcategory: "SATRA"
+        image_url: "imagenes-productos/satra/accesorio-canaleta-2.png",
+        description: "Accesorios modulares de conexión para canaletas de PVC (ángulos planos, internos, externos, uniones y tapas finales) que garantizan un acabado estético, uniforme y seguro del cableado estructurado.",
+        category: "Accesorios para Canaletas"
       },
       {
-        name: "Canaleta de pared con adhesivo - SATRA",
-        sku: "SA-CAN-AD",
+        name: "Accesorios para Canaletas",
+        sku: "SAT-CAN-ACC03",
         brand: "SATRA",
-        image_url: "media/images/sidebar_trunks.webp",
-        description: "Canaleta plástica de PVC con adhesivo doble faz para fijar en pared de manera limpia y sin perforaciones. Medida de 20x10mm por tramo de 2 metros.",
-        category: "Canaletas",
-        subcategory: "SATRA"
+        image_url: "imagenes-productos/satra/accesorio-canaleta-3.png",
+        description: "Accesorios modulares de conexión para canaletas de PVC (ángulos planos, internos, externos, uniones y tapas finales) que garantizan un acabado estético, uniforme y seguro del cableado estructurado.",
+        category: "Accesorios para Canaletas"
       },
       {
-        name: "Canaleta de pared - SATRA",
-        sku: "SA-CAN-PAR",
+        name: "Accesorios para Canaletas",
+        sku: "SAT-CAN-ACC04",
         brand: "SATRA",
-        image_url: "media/images/sidebar_trunks.webp",
-        description: "Canaleta de pared en PVC sin adhesivo. Dimensiones de 40x25mm, tramos de 2 metros. Gran capacidad para cables UTP.",
-        category: "Canaletas",
-        subcategory: "SATRA"
+        image_url: "imagenes-productos/satra/accesorio-canaleta-4.png",
+        description: "Accesorios modulares de conexión para canaletas de PVC (ángulos planos, internos, externos, uniones y tapas finales) que garantizan un acabado estético, uniforme y seguro del cableado estructurado.",
+        category: "Accesorios para Canaletas"
       },
+      // Equipos de Rotulado
       {
-        name: "Canaleta de piso - SATRA",
-        sku: "SA-CAN-PIS",
-        brand: "SATRA",
-        image_url: "media/images/sidebar_trunks.webp",
-        description: "Canaleta para piso tipo media luna en PVC reforzado. Soporta pisadas y paso de ruedas sin deformarse. Evita tropiezos.",
-        category: "Canaletas",
-        subcategory: "SATRA"
-      },
-      {
-        name: "Accesorios de canaleta: Ángulo Externo - SATRA",
-        sku: "SA-ACC-ANEX",
-        brand: "SATRA",
-        image_url: "media/images/sidebar_trunks.webp",
-        description: "Ángulo externo de 90 grados para empalme estético de canaletas de pared en esquinas exteriores.",
-        category: "Accesorios para Canaletas",
-        subcategory: "SATRA"
-      },
-      {
-        name: "Accesorios de canaleta: Ángulo Interno - SATRA",
-        sku: "SA-ACC-ANIN",
-        brand: "SATRA",
-        image_url: "media/images/sidebar_trunks.webp",
-        description: "Ángulo interno de 90 grados para empalme estético de canaletas en esquinas interiores.",
-        category: "Accesorios para Canaletas",
-        subcategory: "SATRA"
-      },
-      {
-        name: "Accesorios de canaleta: Unión Plana - SATRA",
-        sku: "SA-ACC-UNPL",
-        brand: "SATRA",
-        image_url: "media/images/sidebar_trunks.webp",
-        description: "Unión plana para conectar dos tramos de canaleta lineal de forma continua y prolija.",
-        category: "Accesorios para Canaletas",
-        subcategory: "SATRA"
-      },
-      {
-        name: "Accesorios de canaleta: T-Plana - SATRA",
-        sku: "SA-ACC-TPLA",
-        brand: "SATRA",
-        image_url: "media/images/sidebar_trunks.webp",
-        description: "Accesorio en T plana para derivaciones a 90 grados en tramos de canaletas de pared.",
-        category: "Accesorios para Canaletas",
-        subcategory: "SATRA"
-      },
-      {
-        name: "Rotuladora Brother P-Touch E560BTVP - SATRA",
-        sku: "SA-ROT-E560",
+        name: "Rotuladora Brother P-Touch E560BTVP",
+        sku: "BRO-PT-E560",
         brand: "Brother",
-        image_url: "media/images/product_label_printer.webp",
-        description: "Rotuladora industrial con maletín de transporte y conectividad Bluetooth / PC. Permite diseñar y etiquetar de forma profesional.",
-        category: "Rotulado",
-        subcategory: "Brother"
+        image_url: "imagenes-productos/brother/rotuladora-brother-e560btvp.png",
+        description: "Rotuladora industrial portátil avanzada con conectividad Bluetooth integrada. Diseñada para rotulado profesional de cables, paneles y gabinetes. Permite imprimir desde dispositivos móviles.",
+        category: "Rotulado"
       },
       {
-        name: "Rotuladora Brother P-Touch E110VP - SATRA",
-        sku: "SA-ROT-E110",
+        name: "Rotuladora Brother P-Touch E110VP",
+        sku: "BRO-PT-E110",
         brand: "Brother",
-        image_url: "media/images/product_label_printer.webp",
-        description: "Rotuladora manual portátil para electricistas y telecomunicaciones. Imprime cintas de alta resistencia mecánica de hasta 12mm.",
-        category: "Rotulado",
-        subcategory: "Brother"
+        image_url: "imagenes-productos/brother/rotuladora-brother-e110vp.png",
+        description: "Rotuladora portátil industrial ergonómica de mano. Ideal para electricistas e instaladores de red. Teclas de acceso rápido para etiquetas de bandera, envoltura de cables y paneles.",
+        category: "Rotulado"
       },
       {
-        name: "Rotuladora Cinta Etiketalo Tape - SATRA",
-        sku: "SA-ROT-CINTA",
-        brand: "SATRA",
-        image_url: "media/images/product_label_printer.webp",
-        description: "Cintas de repuesto laminadas compatibles de alta calidad y excelente adherencia para diversos entornos.",
-        category: "Rotulado",
-        subcategory: "SATRA"
+        name: "Rotuladora Cinta Etiketalo Tape",
+        sku: "ETI-TAPE-01",
+        brand: "Etiketalo",
+        image_url: "imagenes-productos/etiketalo/rotuladora-etiketalo-tape.png",
+        description: "Cinta de rotulación autoadhesiva compatible de alta calidad. Resistente al agua, químicos, rayos UV y temperaturas extremas, perfecta para la identificación duradera de cables y equipos en infraestructuras de red.",
+        category: "Rotulado"
       }
     ];
 
