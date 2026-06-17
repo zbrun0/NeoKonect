@@ -160,7 +160,7 @@
     
     <!-- Category Bento Grid -->
     <section class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-16">
-      <div class="md:col-span-2 group relative overflow-hidden bg-white border border-outline-variant p-6 h-64 flex flex-col justify-end cursor-pointer">
+      <div onclick="filterCategory('Cableado de Cobre')" class="md:col-span-2 group relative overflow-hidden bg-white border border-outline-variant p-6 h-64 flex flex-col justify-end cursor-pointer">
         <div class="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-500">
           <img alt="Cableado de cobre" class="w-full h-full object-cover opacity-20 group-hover:opacity-40" data-alt="A professional high-angle close-up shot of neat, bundled blue and gray ethernet cables connected to a server rack. The lighting is cold and industrial, emphasizing the technical precision of structured cabling. The aesthetic is monochromatic and minimal, following a high-end B2B technological infrastructure theme with sharp focus and professional clarity." src="media/images/sidebar_copper.webp">
         </div>
@@ -171,17 +171,17 @@
         </div>
       </div>
       
-      <div class="group relative overflow-hidden bg-white border border-outline-variant p-6 h-64 flex flex-col justify-end cursor-pointer">
+      <div onclick="filterCategory('Gabinete de Piso')" class="group relative overflow-hidden bg-white border border-outline-variant p-6 h-64 flex flex-col justify-end cursor-pointer">
         <div class="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-500">
           <img alt="Gabinetes" class="w-full h-full object-cover opacity-20 group-hover:opacity-40" data-alt="A side view of a sleek, black professional server cabinet standing in a clean, brightly lit data center with polished floors. The mood is authoritative and utilitarian, showcasing high-quality industrial hardware. The lighting is diffused, highlighting the vertical lines and perforated doors of the enclosure in a minimalist B2B environment." src="media/images/sidebar_cabinets.webp">
         </div>
         <div class="relative z-10">
-          <h3 class="font-title-md text-title-md">Gabinetes y accesorios</h3>
+          <h3 class="font-title-md text-title-md">Gabinetes de Piso y Pared</h3>
           <p class="text-on-surface-variant text-body-sm mt-1">Pared y Piso.</p>
         </div>
       </div>
       
-      <div class="group relative overflow-hidden bg-white border border-outline-variant p-6 h-64 flex flex-col justify-end cursor-pointer">
+      <div onclick="filterCategory('Canaletas')" class="group relative overflow-hidden bg-white border border-outline-variant p-6 h-64 flex flex-col justify-end cursor-pointer">
         <div class="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-500">
           <img alt="Canaletas" class="w-full h-full object-cover opacity-20 group-hover:opacity-40" data-alt="A detailed macro shot of industrial PVC cable trunking and metal conduits organized neatly on a white wall. The lighting is bright and architectural, casting subtle soft shadows that define the modular shapes. The scene is clean and orderly, representing the efficiency and professional organization of modern workspace wiring solutions." src="media/images/sidebar_trunks.webp">
         </div>
@@ -191,7 +191,7 @@
         </div>
       </div>
       
-      <div class="md:col-span-4 group relative overflow-hidden bg-white border border-outline-variant p-6 h-48 flex flex-col justify-center cursor-pointer">
+      <div onclick="filterCategory('Rotulado')" class="md:col-span-4 group relative overflow-hidden bg-white border border-outline-variant p-6 h-48 flex flex-col justify-center cursor-pointer">
         <div class="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-500">
           <img alt="Rotulado" class="w-full h-full object-cover opacity-10 group-hover:opacity-20" data-alt="An industrial handheld label printer being used by a technician in a dark blue technical work shirt. The printer is generating a white adhesive label with sharp black text for a telecommunications rack. The lighting is focused and professional, highlighting the utilitarian efficiency of the tool in a modern B2B electrical and data environment." src="media/images/sidebar_labeling.webp">
         </div>
@@ -208,44 +208,42 @@
       <aside class="w-full md:w-64 flex-shrink-0">
         <div class="sticky top-24 space-y-4">
           <h4 class="font-label-caps text-primary border-b border-outline-variant pb-2">CATEGORÍAS</h4>
-          <nav class="flex flex-col">
-            <!-- CABLEADO -->
-            <div class="mb-4">
-              <button class="w-full text-left font-bold text-body-sm py-2 px-3 flex justify-between items-center bg-surface-container-low border-l-4 border-secondary">
-                Cableado de Cobre
+          <nav id="sidebar-nav" class="flex flex-col gap-1">
+            <button onclick="filterCategory('all', this)" class="catalog-sidebar-item active w-full text-left font-bold text-body-sm py-2 px-3 flex justify-between items-center bg-surface-container-low border-l-4 border-secondary rounded transition-all">
+              Ver Todo
+            </button>
+            <button onclick="filterCategory('Cableado de Cobre', this)" class="catalog-sidebar-item w-full text-left text-on-surface-variant hover:text-secondary font-body-sm py-2 px-3 flex justify-between items-center rounded border-l-4 border-transparent transition-all">
+              Cableado de Cobre
+            </button>
+            
+            <!-- Gabinetes expandable group -->
+            <div class="mb-1">
+              <button onclick="toggleSubmenu(this)" class="w-full text-left text-on-surface-variant hover:text-secondary font-body-sm py-2 px-3 flex justify-between items-center rounded border-l-4 border-transparent transition-all">
+                Gabinetes
                 <span class="material-symbols-outlined text-sm">keyboard_arrow_down</span>
               </button>
-              <div class="pl-6 mt-1 flex flex-col gap-1 border-l border-outline-variant ml-3">
-                <a class="text-secondary font-bold text-body-sm py-1" href="#">SATRA</a>
-                <a class="text-on-surface-variant hover:text-secondary text-body-sm py-1 transition-colors" href="#">PANDUIT</a>
-                <a class="text-on-surface-variant hover:text-secondary text-body-sm py-1 transition-colors" href="#">DIXON</a>
+              <div class="pl-4 mt-1 flex flex-col gap-1 border-l border-outline-variant ml-3">
+                <button onclick="filterCategory('Gabinete de Piso', this)" class="catalog-sidebar-item w-full text-left text-on-surface-variant hover:text-secondary text-body-sm py-1.5 px-2 rounded border-l-4 border-transparent transition-all">
+                  Gabinete de Piso
+                </button>
+                <button onclick="filterCategory('Gabinete de Pared', this)" class="catalog-sidebar-item w-full text-left text-on-surface-variant hover:text-secondary text-body-sm py-1.5 px-2 rounded border-l-4 border-transparent transition-all">
+                  Gabinete de Pared
+                </button>
               </div>
             </div>
-            <!-- GABINETES -->
-            <div class="mb-4">
-              <button class="w-full text-left text-on-surface-variant font-body-sm py-2 px-3 flex justify-between items-center hover:bg-surface-container-low transition-all">
-                Gabinetes
-                <span class="material-symbols-outlined text-sm">keyboard_arrow_right</span>
-              </button>
-              <div class="hidden pl-6 mt-1 flex flex-col gap-1 border-l border-outline-variant ml-3">
-                <a class="text-on-surface-variant hover:text-secondary text-body-sm py-1" href="#">Bandejas</a>
-                <a class="text-on-surface-variant hover:text-secondary text-body-sm py-1" href="#">Regletas</a>
-              </div>
-            </div>
-            <!-- ACCESORIOS -->
-            <div class="mb-4">
-              <button class="w-full text-left text-on-surface-variant font-body-sm py-2 px-3 flex justify-between items-center hover:bg-surface-container-low transition-all">
-                Accesorios y Canaletas
-                <span class="material-symbols-outlined text-sm">keyboard_arrow_right</span>
-              </button>
-            </div>
-            <!-- ROTULADO -->
-            <div class="mb-4">
-              <button class="w-full text-left text-on-surface-variant font-body-sm py-2 px-3 flex justify-between items-center hover:bg-surface-container-low transition-all">
-                Rotulado
-                <span class="material-symbols-outlined text-sm">keyboard_arrow_right</span>
-              </button>
-            </div>
+            
+            <button onclick="filterCategory('Accesorios para Gabinetes', this)" class="catalog-sidebar-item w-full text-left text-on-surface-variant hover:text-secondary font-body-sm py-2 px-3 flex justify-between items-center rounded border-l-4 border-transparent transition-all">
+              Accesorios para Gabinetes
+            </button>
+            <button onclick="filterCategory('Canaletas', this)" class="catalog-sidebar-item w-full text-left text-on-surface-variant hover:text-secondary font-body-sm py-2 px-3 flex justify-between items-center rounded border-l-4 border-transparent transition-all">
+              Canaletas
+            </button>
+            <button onclick="filterCategory('Accesorios para Canaletas', this)" class="catalog-sidebar-item w-full text-left text-on-surface-variant hover:text-secondary font-body-sm py-2 px-3 flex justify-between items-center rounded border-l-4 border-transparent transition-all">
+              Accesorios para Canaletas
+            </button>
+            <button onclick="filterCategory('Rotulado', this)" class="catalog-sidebar-item w-full text-left text-on-surface-variant hover:text-secondary font-body-sm py-2 px-3 flex justify-between items-center rounded border-l-4 border-transparent transition-all">
+              Rotulado
+            </button>
           </nav>
         </div>
       </aside>
@@ -253,7 +251,7 @@
       <!-- Product Grid -->
       <div class="flex-grow">
         <div class="flex justify-between items-center mb-8">
-          <div class="text-body-sm text-on-surface-variant">Mostrando <span class="font-bold text-on-surface">12 de 145</span> productos en <span class="font-bold text-on-surface">Cableado / SATRA</span></div>
+          <div class="text-body-sm text-on-surface-variant">Cargando catálogo...</div>
           <div class="flex gap-2">
             <button class="border border-outline px-3 py-1 text-body-sm flex items-center gap-2 hover:bg-surface-container-low transition-all">
               <span class="material-symbols-outlined text-sm">filter_list</span> Filtrar
@@ -265,62 +263,7 @@
         </div>
         
         <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
-          <!-- Product Card 1 -->
-          <div class="bg-white border border-outline-variant p-4 flex flex-col hover:border-secondary transition-all">
-            <div class="aspect-square bg-slate-50 mb-4 overflow-hidden relative group">
-              <img alt="Cable SATRA CAT6" class="w-full h-full object-contain" data-alt="A high-resolution product studio shot of a reel of blue CAT6 Ethernet cable from SATRA. The cable is neatly coiled on a plastic spool, presented against a clean, neutral gray background. The lighting is crisp and commercial, emphasizing the quality of the plastic jacket and the professional labeling. The overall style is technical, precise, and utilitarian for a B2B catalog." src="media/images/product_cat6_cable.webp">
-              <div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span class="bg-white px-4 py-2 text-body-sm font-bold shadow-sm">VER DETALLES</span>
-              </div>
-            </div>
-            <div class="flex justify-between items-start mb-2">
-              <span class="font-label-caps text-[10px] text-secondary-container bg-secondary-container/10 px-2 py-0.5">SATRA</span>
-              <span class="text-on-surface-variant text-[10px] font-mono">SKU: ST-C6-BL-305</span>
-            </div>
-            <h4 class="font-title-md text-on-surface mb-2 leading-tight">Cable U/UTP CAT6 23AWG LSZH Azul</h4>
-            <p class="text-on-surface-variant text-body-sm mb-6 flex-grow">
-              Bobina de 305 metros. Conductor de cobre sólido, chaqueta LSZH (Low Smoke Zero Halogen). Cumple estándares TIA/EIA-568.
-            </p>
-            <button onclick="addToCart('Cable U/UTP CAT6 23AWG LSZH Azul', 'ST-C6-BL-305', 'SATRA', 'media/images/product_cat6_cable.webp', 'Bobina de 305 metros. Conductor de cobre sólido, chaqueta LSZH.')" class="w-full bg-primary text-on-primary font-bold py-3 hover:bg-secondary transition-colors text-body-sm">
-              COTIZAR PROYECTO
-            </button>
-          </div>
-          
-          <!-- Product Card 2 -->
-          <div class="bg-white border border-outline-variant p-4 flex flex-col hover:border-secondary transition-all">
-            <div class="aspect-square bg-slate-50 mb-4 overflow-hidden relative group">
-              <img alt="Bandeja Gabinete" class="w-full h-full object-contain" data-alt="A professional studio photo of a 1U ventilated server rack shelf made of high-quality cold-rolled steel with a black powder-coat finish. The shelf is shown from a 45-degree angle to emphasize its depth and ventilation slots. The lighting is sharp, creating subtle highlights on the matte black surface, presented in a minimal, professional B2B e-commerce style." src="media/images/product_rack_shelf.webp">
-            </div>
-            <div class="flex justify-between items-start mb-2">
-              <span class="font-label-caps text-[10px] text-secondary-container bg-secondary-container/10 px-2 py-0.5">NEOKONECT</span>
-              <span class="text-on-surface-variant text-[10px] font-mono">SKU: GB-BN-VNT-1U</span>
-            </div>
-            <h4 class="font-title-md text-on-surface mb-2 leading-tight">Bandeja Ventilada 1U para Gabinete</h4>
-            <p class="text-on-surface-variant text-body-sm mb-6 flex-grow">
-              Para gabinetes de 600mm y 800mm de profundidad. Acero laminado al frío, pintura electrostática negra.
-            </p>
-            <button onclick="addToCart('Bandeja Ventilada 1U para Gabinete', 'GB-BN-VNT-1U', 'NEOKONECT', 'media/images/product_rack_shelf.webp', 'Para gabinetes de 600mm y 800mm de profundidad. Acero laminado al frío, pintura electrostática negra.')" class="w-full bg-primary text-on-primary font-bold py-3 hover:bg-secondary transition-colors text-body-sm">
-              COTIZAR PROYECTO
-            </button>
-          </div>
-          
-          <!-- Product Card 3 -->
-          <div class="bg-white border border-outline-variant p-4 flex flex-col hover:border-secondary transition-all">
-            <div class="aspect-square bg-slate-50 mb-4 overflow-hidden relative group">
-              <img alt="Impresora Brother" class="w-full h-full object-contain" data-alt="A professional studio shot of an industrial handheld label printer, specifically for electrical and network labeling. The device features a ruggedized orange and black plastic casing, a full QWERTY keyboard, and a backlit digital display showing 'Pnl 01'. It is positioned on a clean white background with professional product lighting, conveying reliability and high-end technical capability." src="media/images/product_label_printer.webp">
-            </div>
-            <div class="flex justify-between items-start mb-2">
-              <span class="font-label-caps text-[10px] text-secondary-container bg-secondary-container/10 px-2 py-0.5">BROTHER</span>
-              <span class="text-on-surface-variant text-[10px] font-mono">SKU: BR-PT-E550W</span>
-            </div>
-            <h4 class="font-title-md text-on-surface mb-2 leading-tight">Rotuladora Industrial PT-E550W VP</h4>
-            <p class="text-on-surface-variant text-body-sm mb-6 flex-grow">
-              Conectividad inalámbrica, imprime etiquetas de hasta 24mm. Incluye maletín de transporte y batería recargable.
-            </p>
-            <button onclick="addToCart('Rotuladora Industrial PT-E550W VP', 'BR-PT-E550W', 'BROTHER', 'media/images/product_label_printer.webp', 'Conectividad inalámbrica, imprime etiquetas de hasta 24mm. Incluye maletín de transporte.')" class="w-full bg-primary text-on-primary font-bold py-3 hover:bg-secondary transition-colors text-body-sm">
-              COTIZAR PROYECTO
-            </button>
-          </div>
+          <!-- Dynamically loaded -->
         </div>
         
         <!-- Pagination -->
@@ -414,6 +357,247 @@
   <script src="supabase-client.js"></script>
 
   <script>
+    // Real SATRA Catalog Products list
+    const LOCAL_PRODUCTS = [
+      {
+        name: "Cable U/UTP Cat6 LSZH 4PX24AWG - SATRA",
+        sku: "SA-UTP-C6-LSZH",
+        brand: "SATRA",
+        image_url: "media/images/product_cat6_cable.webp",
+        description: "Cable de cobre categoría 6 de cuatro pares, chaqueta LSZH (baja emisión de humos y cero halógenos). Calibre 24AWG. Ideal para tendidos horizontales de datos y telefonía.",
+        category: "Cableado de Cobre",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Cable U/UTP Cat 5e CM 4PX24AWG - SATRA",
+        sku: "SA-UTP-C5E-CM",
+        brand: "SATRA",
+        image_url: "media/images/product_cat6_cable.webp",
+        description: "Cable de cobre categoría 5e U/UTP de 4 pares con chaqueta CM retardante a la flama para uso en ductos internos. Calibre 24AWG.",
+        category: "Cableado de Cobre",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Cable U/UTP Cat6 Exterior 4PX23AWG - SATRA",
+        sku: "SA-UTP-C6-EXT",
+        brand: "SATRA",
+        image_url: "media/images/product_cat6_cable.webp",
+        description: "Cable de cobre categoría 6 U/UTP para exteriores, chaqueta de polietileno (PE) negra resistente a rayos UV. Calibre 23AWG.",
+        category: "Cableado de Cobre",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Cable U/FTP Cat6A LSZH 4PX23AWG - SATRA",
+        sku: "SA-FTP-C6A-LSZH",
+        brand: "SATRA",
+        image_url: "media/images/product_cat6_cable.webp",
+        description: "Cable de cobre categoría 6A U/FTP de 4 pares con blindaje individual de aluminio por par y chaqueta LSZH. Calibre 23AWG para transmisiones de 10Gbps.",
+        category: "Cableado de Cobre",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Gabinete de piso 42 RU SATRA",
+        sku: "SA-GP-42RU",
+        brand: "SATRA",
+        image_url: "media/images/sidebar_cabinets.webp",
+        description: "Gabinete de piso de 42 Unidades de Rack (RU). Estructura metálica rígida, puerta de vidrio templado con cerradura y paneles laterales desmontables.",
+        category: "Gabinete de Piso",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Gabinete de piso 38 RU SATRA",
+        sku: "SA-GP-38RU",
+        brand: "SATRA",
+        image_url: "media/images/sidebar_cabinets.webp",
+        description: "Gabinete de piso de 38 Unidades de Rack (RU). Excelente solución para organizar servidores y equipamiento de TI pesado.",
+        category: "Gabinete de Piso",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Gabinete de piso 37 RU SATRA",
+        sku: "SA-GP-37RU",
+        brand: "SATRA",
+        image_url: "media/images/sidebar_cabinets.webp",
+        description: "Gabinete de piso de 37 Unidades de Rack (RU). Equipado con ruedas para fácil desplazamiento y rieles de montaje ajustables.",
+        category: "Gabinete de Piso",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Gabinete de piso 24 RU SATRA",
+        sku: "SA-GP-24RU",
+        brand: "SATRA",
+        image_url: "media/images/sidebar_cabinets.webp",
+        description: "Gabinete de piso compacto de 24 Unidades de Rack (RU) para oficinas medianas o nodos de distribución secundarios.",
+        category: "Gabinete de Piso",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Gabinete de pared 18 RU para equipos TI - SATRA",
+        sku: "SA-GWA-18RU",
+        brand: "SATRA",
+        image_url: "media/images/product_rack_shelf.webp",
+        description: "Gabinete mural de pared de 18 Unidades de Rack (RU). Diseño de doble cuerpo con puerta de vidrio y acceso trasero para mantenimiento rápido.",
+        category: "Gabinete de Pared",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Gabinete de pared 12 RU para equipos TI - SATRA",
+        sku: "SA-GWA-12RU",
+        brand: "SATRA",
+        image_url: "media/images/product_rack_shelf.webp",
+        description: "Gabinete mural de pared de 12 Unidades de Rack (RU). Ideal para switches y paneles de parcheo en oficinas o departamentos.",
+        category: "Gabinete de Pared",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Gabinete de pared 8 RU SATRA",
+        sku: "SA-GWA-8RU",
+        brand: "SATRA",
+        image_url: "media/images/product_rack_shelf.webp",
+        description: "Gabinete mural de pared de 8 Unidades de Rack (RU). Ahorro extremo de espacio con puerta de vidrio templado y cerradura.",
+        category: "Gabinete de Pared",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Gabinete de pared de 6 RU para equipos TI - SATRA",
+        sku: "SA-GWA-6RU",
+        brand: "SATRA",
+        image_url: "media/images/product_rack_shelf.webp",
+        description: "Gabinete mural de pared compacto de 6 Unidades de Rack (RU) para hubs locales, routers y sistemas de cableado residencial.",
+        category: "Gabinete de Pared",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Bandeja Simple - SATRA",
+        sku: "SA-ACC-BJS",
+        brand: "SATRA",
+        image_url: "media/images/product_rack_shelf.webp",
+        description: "Bandeja fija para gabinete de 1U. Fabricada en acero laminado en frío, terminación en pintura negra microtexturizada.",
+        category: "Accesorios para Gabinetes",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Organizador Horizontal - Alta densidad - SATRA",
+        sku: "SA-ACC-ORGH",
+        brand: "SATRA",
+        image_url: "media/images/product_rack_shelf.webp",
+        description: "Organizador horizontal de cables de 1U con tapa para alta densidad. Organiza parches de fibra óptica o cables de red en racks de 19\".",
+        category: "Accesorios para Gabinetes",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Kit de ventiladores para gabinetes de equipos TI - SATRA",
+        sku: "SA-ACC-KITV",
+        brand: "SATRA",
+        image_url: "media/images/product_rack_shelf.webp",
+        description: "Unidad extractora de aire compuesta por ventiladores silenciosos de alto flujo para enfriar componentes activos.",
+        category: "Accesorios para Gabinetes",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Power Rack Tomacorriente para racks o gabinete - SATRA",
+        sku: "SA-ACC-PDU",
+        brand: "SATRA",
+        image_url: "media/images/product_rack_shelf.webp",
+        description: "Regleta multicontacto (PDU) de 8 tomas universales de 15A con switch luminoso y disyuntor térmico de seguridad. 1U.",
+        category: "Accesorios para Gabinetes",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Canaleta de pared con adhesivo - SATRA",
+        sku: "SA-CAN-AD",
+        brand: "SATRA",
+        image_url: "media/images/sidebar_trunks.webp",
+        description: "Canaleta plástica de PVC con adhesivo doble faz para fijar en pared de manera limpia y sin perforaciones. Medida de 20x10mm por tramo de 2 metros.",
+        category: "Canaletas",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Canaleta de pared - SATRA",
+        sku: "SA-CAN-PAR",
+        brand: "SATRA",
+        image_url: "media/images/sidebar_trunks.webp",
+        description: "Canaleta de pared en PVC sin adhesivo. Dimensiones de 40x25mm, tramos de 2 metros. Gran capacidad para cables UTP.",
+        category: "Canaletas",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Canaleta de piso - SATRA",
+        sku: "SA-CAN-PIS",
+        brand: "SATRA",
+        image_url: "media/images/sidebar_trunks.webp",
+        description: "Canaleta para piso tipo media luna en PVC reforzado. Soporta pisadas y paso de ruedas sin deformarse. Evita tropiezos.",
+        category: "Canaletas",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Accesorios de canaleta: Ángulo Externo - SATRA",
+        sku: "SA-ACC-ANEX",
+        brand: "SATRA",
+        image_url: "media/images/sidebar_trunks.webp",
+        description: "Ángulo externo de 90 grados para empalme estético de canaletas de pared en esquinas exteriores.",
+        category: "Accesorios para Canaletas",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Accesorios de canaleta: Ángulo Interno - SATRA",
+        sku: "SA-ACC-ANIN",
+        brand: "SATRA",
+        image_url: "media/images/sidebar_trunks.webp",
+        description: "Ángulo interno de 90 grados para empalme estético de canaletas en esquinas interiores.",
+        category: "Accesorios para Canaletas",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Accesorios de canaleta: Unión Plana - SATRA",
+        sku: "SA-ACC-UNPL",
+        brand: "SATRA",
+        image_url: "media/images/sidebar_trunks.webp",
+        description: "Unión plana para conectar dos tramos de canaleta lineal de forma continua y prolija.",
+        category: "Accesorios para Canaletas",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Accesorios de canaleta: T-Plana - SATRA",
+        sku: "SA-ACC-TPLA",
+        brand: "SATRA",
+        image_url: "media/images/sidebar_trunks.webp",
+        description: "Accesorio en T plana para derivaciones a 90 grados en tramos de canaletas de pared.",
+        category: "Accesorios para Canaletas",
+        subcategory: "SATRA"
+      },
+      {
+        name: "Rotuladora Brother P-Touch E560BTVP - SATRA",
+        sku: "SA-ROT-E560",
+        brand: "Brother",
+        image_url: "media/images/product_label_printer.webp",
+        description: "Rotuladora industrial con maletín de transporte y conectividad Bluetooth / PC. Permite diseñar y etiquetar de forma profesional.",
+        category: "Rotulado",
+        subcategory: "Brother"
+      },
+      {
+        name: "Rotuladora Brother P-Touch E110VP - SATRA",
+        sku: "SA-ROT-E110",
+        brand: "Brother",
+        image_url: "media/images/product_label_printer.webp",
+        description: "Rotuladora manual portátil para electricistas y telecomunicaciones. Imprime cintas de alta resistencia mecánica de hasta 12mm.",
+        category: "Rotulado",
+        subcategory: "Brother"
+      },
+      {
+        name: "Rotuladora Cinta Etiketalo Tape - SATRA",
+        sku: "SA-ROT-CINTA",
+        brand: "SATRA",
+        image_url: "media/images/product_label_printer.webp",
+        description: "Cintas de repuesto laminadas compatibles de alta calidad y excelente adherencia para diversos entornos.",
+        category: "Rotulado",
+        subcategory: "SATRA"
+      }
+    ];
+
+    let allProducts = [];
+    let currentCategory = 'all';
+
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     if (menuBtn && mobileMenu) {
@@ -422,21 +606,20 @@
       });
     }
 
-    // Micro-interactions for product sidebars
-    document.querySelectorAll('aside button').forEach(button => {
-      button.addEventListener('click', () => {
-        const subMenu = button.nextElementSibling;
-        if(subMenu) {
-          subMenu.classList.toggle('hidden');
-          const icon = button.querySelector('.material-symbols-outlined');
-          if(icon.innerText === 'keyboard_arrow_right') {
+    function toggleSubmenu(button) {
+      const subMenu = button.nextElementSibling;
+      if (subMenu) {
+        subMenu.classList.toggle('hidden');
+        const icon = button.querySelector('.material-symbols-outlined');
+        if (icon) {
+          if (icon.innerText === 'keyboard_arrow_right') {
             icon.innerText = 'keyboard_arrow_down';
           } else {
             icon.innerText = 'keyboard_arrow_right';
           }
         }
-      });
-    });
+      }
+    }
 
     // Cart logic
     function addToCart(name, sku, brand, img, desc) {
@@ -491,12 +674,115 @@
       }, 4000);
     }
 
-    // Fetch and render products from Supabase
+    // Filter Category Handler
+    function filterCategory(category, el) {
+      currentCategory = category;
+      
+      // Reset active styles on all sidebar buttons
+      document.querySelectorAll('.catalog-sidebar-item').forEach(item => {
+        item.classList.remove('active', 'bg-surface-container-low', 'border-secondary', 'font-bold');
+        item.classList.add('border-transparent', 'text-on-surface-variant');
+      });
+      
+      if (el) {
+        // Active clicked button
+        el.classList.add('active', 'bg-surface-container-low', 'border-secondary', 'font-bold');
+        el.classList.remove('border-transparent');
+      } else {
+        // Triggered from category cards, find corresponding button
+        let buttons = Array.from(document.querySelectorAll('.catalog-sidebar-item'));
+        let targetBtn = buttons.find(b => b.textContent.trim() === category);
+        if (category === 'all') {
+          targetBtn = buttons.find(b => b.textContent.trim().includes('Ver Todo'));
+        }
+        if (targetBtn) {
+          targetBtn.classList.add('active', 'bg-surface-container-low', 'border-secondary', 'font-bold');
+          targetBtn.classList.remove('border-transparent');
+          
+          // If it is inside sub-menu, expand parent
+          const parentSubmenu = targetBtn.parentElement;
+          if (parentSubmenu && parentSubmenu.classList.contains('hidden')) {
+            parentSubmenu.classList.remove('hidden');
+            const parentToggle = parentSubmenu.previousElementSibling;
+            if (parentToggle) {
+              const icon = parentToggle.querySelector('.material-symbols-outlined');
+              if (icon) icon.innerText = 'keyboard_arrow_down';
+            }
+          }
+        }
+      }
+      
+      renderFilteredProducts();
+      
+      // Scroll smoothly down to the product explorer when clicking category bento grid cards
+      if (!el) {
+        document.getElementById('sidebar-nav').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Render Filtered Products
+    function renderFilteredProducts() {
+      const grid = document.getElementById('product-grid');
+      if (!grid) return;
+      
+      let filtered = [];
+      if (currentCategory === 'all') {
+        filtered = allProducts;
+      } else if (currentCategory === 'Gabinetes') {
+        filtered = allProducts.filter(p => p.category && p.category.includes('Gabinete'));
+      } else {
+        filtered = allProducts.filter(p => p.category === currentCategory);
+      }
+      
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-12 text-center text-on-surface-variant font-body-sm">
+            <span class="material-symbols-outlined text-4xl">inventory_2</span>
+            <p class="mt-2">No se encontraron productos en esta categoría.</p>
+          </div>
+        `;
+        return;
+      }
+      
+      let html = '';
+      filtered.forEach(product => {
+        html += `
+          <div class="bg-white border border-outline-variant p-4 flex flex-col hover:border-secondary transition-all">
+            <div class="aspect-square bg-slate-50 mb-4 overflow-hidden relative group">
+              <img alt="${product.name}" class="w-full h-full object-contain" src="${product.image_url || 'media/images/neokonectlogo.webp'}">
+              <div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="bg-white px-4 py-2 text-body-sm font-bold shadow-sm">VER DETALLES</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-start mb-2">
+              <span class="font-label-caps text-[10px] text-secondary-container bg-secondary-container/10 px-2 py-0.5">${product.brand || 'SATRA'}</span>
+              <span class="text-on-surface-variant text-[10px] font-mono">SKU: ${product.sku}</span>
+            </div>
+            <h4 class="font-title-md text-on-surface mb-2 leading-tight">${product.name}</h4>
+            <p class="text-on-surface-variant text-body-sm mb-6 flex-grow">
+              ${product.description || ''}
+            </p>
+            <button onclick="addToCart('${product.name.replace(/'/g, "\\'")}', '${product.sku}', '${(product.brand || 'SATRA').replace(/'/g, "\\'")}', '${product.image_url}', '${(product.description || '').replace(/'/g, "\\'")}')" class="w-full bg-primary text-on-primary font-bold py-3 hover:bg-secondary transition-colors text-body-sm">
+              COTIZAR PROYECTO
+            </button>
+          </div>
+        `;
+      });
+      grid.innerHTML = html;
+      
+      // Update count badge
+      const countBadge = document.querySelector('main .text-on-surface-variant');
+      if (countBadge) {
+        const catName = currentCategory === 'all' ? 'Catálogo General' : currentCategory;
+        countBadge.innerHTML = `Mostrando <span class="font-bold text-on-surface">${filtered.length} de ${allProducts.length}</span> productos en <span class="font-bold text-on-surface">${catName}</span>`;
+      }
+    }
+
+    // Fetch and render products from Supabase + merge local SATRA
     async function loadProducts() {
       const grid = document.getElementById('product-grid');
       if (!grid) return;
 
-      // Show loading skeletons or loading text
       grid.innerHTML = `
         <div class="col-span-full py-12 text-center text-on-surface-variant font-body-sm">
           <span class="material-symbols-outlined animate-spin text-4xl text-secondary">sync</span>
@@ -504,69 +790,31 @@
         </div>
       `;
 
+      let dbProducts = [];
       try {
-        if (!window.supabaseClient) {
-          throw new Error('Cliente de Supabase no inicializado');
-        }
-
-        const { data: products, error } = await window.supabaseClient
-          .from('products')
-          .select('*')
-          .order('category', { ascending: true });
-
-        if (error) throw error;
-
-        if (!products || products.length === 0) {
-          grid.innerHTML = `
-            <div class="col-span-full py-12 text-center text-on-surface-variant font-body-sm">
-              <span class="material-symbols-outlined text-4xl">inventory_2</span>
-              <p class="mt-2">No se encontraron productos en el catálogo.</p>
-            </div>
-          `;
-          return;
-        }
-
-        // Render products
-        let html = '';
-        products.forEach(product => {
-          html += `
-            <div class="bg-white border border-outline-variant p-4 flex flex-col hover:border-secondary transition-all">
-              <div class="aspect-square bg-slate-50 mb-4 overflow-hidden relative group">
-                <img alt="${product.name}" class="w-full h-full object-contain" src="${product.image_url || 'media/images/neokonectlogo.webp'}">
-                <div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <span class="bg-white px-4 py-2 text-body-sm font-bold shadow-sm">VER DETALLES</span>
-                </div>
-              </div>
-              <div class="flex justify-between items-start mb-2">
-                <span class="font-label-caps text-[10px] text-secondary-container bg-secondary-container/10 px-2 py-0.5">${product.brand || 'NEOKONECT'}</span>
-                <span class="text-on-surface-variant text-[10px] font-mono">SKU: ${product.sku}</span>
-              </div>
-              <h4 class="font-title-md text-on-surface mb-2 leading-tight">${product.name}</h4>
-              <p class="text-on-surface-variant text-body-sm mb-6 flex-grow">
-                ${product.description || ''}
-              </p>
-              <button onclick="addToCart('${product.name.replace(/'/g, "\\'")}', '${product.sku}', '${product.brand.replace(/'/g, "\\'")}', '${product.image_url}', '${(product.description || '').replace(/'/g, "\\'")}')" class="w-full bg-primary text-on-primary font-bold py-3 hover:bg-secondary transition-colors text-body-sm">
-                COTIZAR PROYECTO
-              </button>
-            </div>
-          `;
-        });
-        grid.innerHTML = html;
-
-        // Update total products count text
-        const countBadge = document.querySelector('main .text-on-surface-variant');
-        if (countBadge) {
-          countBadge.innerHTML = `Mostrando <span class="font-bold text-on-surface">${products.length} de ${products.length}</span> productos en <span class="font-bold text-on-surface">Catálogo General</span>`;
+        if (window.supabaseClient) {
+          const { data, error } = await window.supabaseClient
+            .from('products')
+            .select('*')
+            .order('category', { ascending: true });
+          
+          if (!error && data) {
+            dbProducts = data;
+          }
         }
       } catch (err) {
-        console.error('Error al cargar catálogo:', err);
-        grid.innerHTML = `
-          <div class="col-span-full py-12 text-center text-error font-body-sm">
-            <span class="material-symbols-outlined text-4xl">error</span>
-            <p class="mt-2">Error al cargar el catálogo. Por favor, recarga la página.</p>
-          </div>
-        `;
+        console.warn('Error fetching products from Supabase, using local catalog:', err);
       }
+
+      // Merge local SATRA products with DB products (avoiding duplicates by SKU)
+      allProducts = [...LOCAL_PRODUCTS];
+      dbProducts.forEach(dbProd => {
+        if (!allProducts.some(p => p.sku === dbProd.sku)) {
+          allProducts.push(dbProd);
+        }
+      });
+
+      renderFilteredProducts();
     }
 
     // Call loadProducts on startup
