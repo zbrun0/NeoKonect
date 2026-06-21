@@ -251,15 +251,7 @@
       <!-- Product Grid -->
       <div class="flex-grow">
         <div class="flex justify-between items-center mb-8">
-          <div class="text-body-sm text-on-surface-variant">Cargando catálogo...</div>
-          <div class="flex gap-2">
-            <button class="border border-outline px-3 py-1 text-body-sm flex items-center gap-2 hover:bg-surface-container-low transition-all">
-              <span class="material-symbols-outlined text-sm">filter_list</span> Filtrar
-            </button>
-            <button class="border border-outline px-3 py-1 text-body-sm flex items-center gap-2 hover:bg-surface-container-low transition-all">
-              <span class="material-symbols-outlined text-sm">sort</span> Ordenar
-            </button>
-          </div>
+          <div id="catalog-count-badge" class="text-body-sm text-on-surface-variant">Cargando catálogo...</div>
         </div>
         
         <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
@@ -751,7 +743,7 @@
       grid.innerHTML = html;
       
       // Update count badge
-      const countBadge = document.querySelector('main .text-on-surface-variant');
+      const countBadge = document.getElementById('catalog-count-badge');
       if (countBadge) {
         const catName = currentCategory === 'all' ? 'Catálogo General' : currentCategory;
         countBadge.innerHTML = `Mostrando <span class="font-bold text-on-surface">${filtered.length} de ${allProducts.length}</span> productos en <span class="font-bold text-on-surface">${catName}</span>`;
