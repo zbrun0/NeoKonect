@@ -235,9 +235,21 @@
             <button onclick="filterCategory('Accesorios para Gabinetes', this)" class="catalog-sidebar-item w-full text-left text-on-surface-variant hover:text-secondary font-body-sm py-2 px-3 flex justify-between items-center rounded border-l-4 border-transparent transition-all">
               Accesorios para Gabinetes
             </button>
-            <button onclick="filterCategory('Canaletas', this)" class="catalog-sidebar-item w-full text-left text-on-surface-variant hover:text-secondary font-body-sm py-2 px-3 flex justify-between items-center rounded border-l-4 border-transparent transition-all">
-              Canaletas
-            </button>
+            <!-- Canaletas expandable group -->
+            <div class="mb-1">
+              <button onclick="toggleSubmenu(this)" class="w-full text-left text-on-surface-variant hover:text-secondary font-body-sm py-2 px-3 flex justify-between items-center rounded border-l-4 border-transparent transition-all">
+                Canaletas
+                <span class="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+              </button>
+              <div class="pl-4 mt-1 flex flex-col gap-1 border-l border-outline-variant ml-3">
+                <button onclick="filterCategory('Canaleta de Pared', this)" class="catalog-sidebar-item w-full text-left text-on-surface-variant hover:text-secondary text-body-sm py-1.5 px-2 rounded border-l-4 border-transparent transition-all">
+                  Canaleta de Pared
+                </button>
+                <button onclick="filterCategory('Canaleta de Piso', this)" class="catalog-sidebar-item w-full text-left text-on-surface-variant hover:text-secondary text-body-sm py-1.5 px-2 rounded border-l-4 border-transparent transition-all">
+                  Canaleta de Piso
+                </button>
+              </div>
+            </div>
             <button onclick="filterCategory('Accesorios para Canaletas', this)" class="catalog-sidebar-item w-full text-left text-on-surface-variant hover:text-secondary font-body-sm py-2 px-3 flex justify-between items-center rounded border-l-4 border-transparent transition-all">
               Accesorios para Canaletas
             </button>
@@ -259,16 +271,8 @@
         </div>
         
         <!-- Pagination -->
-        <div class="mt-12 flex justify-center items-center gap-2">
-          <button class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-surface-container-low transition-all">
-            <span class="material-symbols-outlined">chevron_left</span>
-          </button>
-          <button class="w-10 h-10 flex items-center justify-center border border-secondary bg-secondary text-on-primary font-bold">1</button>
-          <button class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-surface-container-low transition-all">2</button>
-          <button class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-surface-container-low transition-all">3</button>
-          <button class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-surface-container-low transition-all">
-            <span class="material-symbols-outlined">chevron_right</span>
-          </button>
+        <div id="pagination-container" class="mt-12 flex justify-center items-center gap-2">
+          <!-- Dynamically loaded -->
         </div>
       </div>
     </div>
@@ -489,7 +493,7 @@
         brand: "SATRA",
         image_url: "imagenes-productos/satra/canaleta-pared-adhesiva.png",
         description: "Canaleta plástica de pared de PVC de alta resistencia con cinta adhesiva de doble contacto para una instalación rápida y estética sin necesidad de taladrar. Ideal para cableado residencial y comercial ligero.",
-        category: "Canaletas"
+        category: "Canaleta de Pared"
       },
       {
         name: "Canaleta de Pared",
@@ -497,7 +501,7 @@
         brand: "SATRA",
         image_url: "imagenes-productos/satra/canaleta-pared.png",
         description: "Canaleta de pared robusta de PVC autoextinguible. Diseñada para proteger y enrutar de forma segura los cables de energía y datos en entornos de oficina y comerciales.",
-        category: "Canaletas"
+        category: "Canaleta de Pared"
       },
       {
         name: "Canaleta de Piso",
@@ -505,7 +509,7 @@
         brand: "SATRA",
         image_url: "imagenes-productos/satra/canaleta-piso.png",
         description: "Canaleta plástica de piso con diseño curvo de bajo perfil resistente al tránsito peatonal constante. Protege cables contra pisadas y evita tropiezos accidentales en zonas de paso.",
-        category: "Canaletas"
+        category: "Canaleta de Piso"
       },
       // Accesorios para Canaletas
       {
@@ -564,9 +568,148 @@
         image_url: "imagenes-productos/etiketalo/rotuladora-etiketalo-tape.png",
         description: "Cinta de rotulación autoadhesiva compatible de alta calidad. Resistente al agua, químicos, rayos UV y temperaturas extremas, perfecta para la identificación duradera de cables y equipos en infraestructuras de red.",
         category: "Rotulado"
+      },
+      // Panduit Products
+      {
+        name: "Cable U/UTP Cat6 NetKey NK6",
+        sku: "PAN-NK6-C6-UTP",
+        brand: "Panduit",
+        image_url: "imagenes-productos/panduit/panduit-netkey-cat6-uutp-cable.jpeg",
+        description: "Cable U/UTP de Categoría 6 de la línea NetKey, diseñado para ofrecer un rendimiento confiable y cumplir con los estándares de cableado de cobre en redes de telecomunicaciones.",
+        category: "Cableado de Cobre"
+      },
+      {
+        name: "Cable U/UTP Cat5e NetKey",
+        sku: "PAN-NK-C5E-UTP",
+        brand: "Panduit",
+        image_url: "imagenes-productos/panduit/panduit-netkey-cat5e-uutp-cable.jpeg",
+        description: "Cable U/UTP de Categoría 5e de la línea NetKey, ideal para aplicaciones estándar de transmisión de voz y datos en redes LAN residenciales y comerciales.",
+        category: "Cableado de Cobre"
+      },
+      {
+        name: "Cable Exterior Cat6 TX6",
+        sku: "PAN-TX6-C6-EXT",
+        brand: "Panduit",
+        image_url: "imagenes-productos/panduit/panduit-tx6-cat6-outside-plant.jpeg",
+        description: "Cable de cobre para exteriores (Outside Plant) Categoría 6 de la línea TX6, con chaqueta altamente resistente al agua, intemperie y radiación UV.",
+        category: "Cableado de Cobre"
+      },
+      {
+        name: "Cable U/FTP Cat6A TX6A",
+        sku: "PAN-TX6A-C6A-FTP",
+        brand: "Panduit",
+        image_url: "imagenes-productos/panduit/panduit-tx6a-cat6a-uftp-cable.jpeg",
+        description: "Cable U/FTP de Categoría 6A de la línea TX6A, con apantallamiento por par que proporciona un excelente blindaje contra interferencias electromagnéticas externas y diafonía.",
+        category: "Cableado de Cobre"
+      },
+      {
+        name: "Gabinete Net-Verse Tipo D",
+        sku: "PAN-NETV-D",
+        brand: "Panduit",
+        image_url: "imagenes-productos/panduit/panduit-netverse-d-cabinet.jpeg",
+        description: "Gabinete de piso Net-Verse Tipo D, diseñado para centros de datos y salas de servidores. Ofrece una estructura robusta para la gestión y organización segura de equipos activos.",
+        category: "Gabinete de Piso"
+      },
+      {
+        name: "Gabinete de Pared PanZone",
+        sku: "PAN-PANZ-WALL",
+        brand: "Panduit",
+        image_url: "imagenes-productos/panduit/panduit-panzone-wall-mount-cabinet.jpeg",
+        description: "Gabinete de pared PanZone para aplicaciones de montaje en muro, optimizando el espacio y proporcionando un acceso rápido y seguro para el mantenimiento de los equipos.",
+        category: "Gabinete de Pared"
+      },
+      {
+        name: "Soporte Ajustable FiberRunner",
+        sku: "PAN-FR-ADJ-BRK",
+        brand: "Panduit",
+        image_url: "imagenes-productos/panduit/panduit-fiberrunner-adjustable-bracket.jpeg",
+        description: "Soporte ajustable diseñado para el sistema de enrutamiento FiberRunner de fibra óptica, garantizando soporte sólido y alineación precisa.",
+        category: "Accesorios para Canaletas"
+      },
+      {
+        name: "Organizador de Cables R4P",
+        sku: "PAN-R4P-MGR",
+        brand: "Panduit",
+        image_url: "imagenes-productos/panduit/panduit-r4p-cable-manager.jpeg",
+        description: "Organizador de cables de alta densidad compatible con rack de 4 postes R4P, facilitando la administración, ruteo y alivio de tensión mecánica del cableado.",
+        category: "Accesorios para Gabinetes"
+      },
+      {
+        name: "Kit de Ventilación PanZone",
+        sku: "PAN-PANZ-FAN",
+        brand: "Panduit",
+        image_url: "imagenes-productos/panduit/panduit-panzone-fan-kit.jpeg",
+        description: "Kit de ventilación forzada PanZone para armarios y gabinetes de pared, optimizando el flujo de aire interno y previniendo el sobrecalentamiento.",
+        category: "Accesorios para Gabinetes"
+      },
+      {
+        name: "PDU Inteligente G5",
+        sku: "PAN-G5-PDU",
+        brand: "Panduit",
+        image_url: "imagenes-productos/panduit/panduit-g5-intelligent-pdu.jpeg",
+        description: "Unidad de distribución de energía (PDU) inteligente de quinta generación (G5), diseñada para monitoreo y administración energética a nivel de rack.",
+        category: "Accesorios para Gabinetes"
+      },
+      {
+        name: "Canaleta de Piso 4 Canales",
+        sku: "PAN-AFR4-FLOOR",
+        brand: "Panduit",
+        image_url: "imagenes-productos/panduit/panduit-afr4bcbl6-floor-raceway.jpeg",
+        description: "Canaleta de piso de 4 canales de bajo perfil, ideal para enrutamiento seguro de cables en áreas con tránsito de personal.",
+        category: "Canaleta de Piso"
+      },
+      {
+        name: "Canaleta LD Baja Tensión",
+        sku: "PAN-LD5-SURFACE",
+        brand: "Panduit",
+        image_url: "imagenes-productos/panduit/panduit-ld5wh6a-surface-raceway.jpeg",
+        description: "Canaleta de superficie serie LD para baja tensión, fabricada en PVC autoextinguible para ruteo estético y protección de cableado.",
+        category: "Canaleta de Pared"
+      },
+      {
+        name: "Base para Canaleta T-70",
+        sku: "PAN-T70-BASE",
+        brand: "Panduit",
+        image_url: "imagenes-productos/panduit/panduit-t70biw8-raceway-base.jpeg",
+        description: "Base de montaje para canaleta de superficie del sistema T-70, garantizando una instalación firme y alineada de los conductos.",
+        category: "Accesorios para Canaletas"
+      },
+      {
+        name: "Tira de Esquina Panduct",
+        sku: "PAN-CS1-CORNER",
+        brand: "Panduit",
+        image_url: "imagenes-productos/panduit/panduit-cs1lg6-corner-strip.jpeg",
+        description: "Tira de esquina Panduct diseñada para proteger y ocultar cables en uniones y esquinas de conductos.",
+        category: "Accesorios para Canaletas"
+      },
+      {
+        name: "Tira de Esquina Panduct con Control de Curvatura",
+        sku: "PAN-CSC1-RADIUS",
+        brand: "Panduit",
+        image_url: "imagenes-productos/panduit/panduit-csc1lg6-radius-control-corner-strip.jpeg",
+        description: "Tira de esquina Panduct equipada con control de radio de curvatura para evitar atenuaciones y daños en la fibra óptica o cables de red.",
+        category: "Accesorios para Canaletas"
+      },
+      {
+        name: "Transición Canaleta Piso a T-70",
+        sku: "PAN-AFR4-T70",
+        brand: "Panduit",
+        image_url: "imagenes-productos/panduit/panduit-afr4trt70bl-transition-fitting.jpeg",
+        description: "Accesorio de transición que une de forma estéticamente integrada la canaleta de piso de 4 canales con el sistema de canaleta T-70.",
+        category: "Accesorios para Canaletas"
+      },
+      {
+        name: "Cubierta de Acoplamiento 4 Canales",
+        sku: "PAN-AFR4-COUPLING",
+        brand: "Panduit",
+        image_url: "imagenes-productos/panduit/panduit-afr4ccbl-coupling-cover.jpeg",
+        description: "Cubierta de acoplamiento de 4 canales para canaleta de piso, protegiendo y asegurando la unión estética entre tramos rectos.",
+        category: "Accesorios para Canaletas"
       }
     ];
 
+    let currentPage = 1;
+    const ITEMS_PER_PAGE = 9;
     let allProducts = [];
     let currentCategory = 'all';
 
@@ -584,10 +727,8 @@
         subMenu.classList.toggle('hidden');
         const icon = button.querySelector('.material-symbols-outlined');
         if (icon) {
-          if (icon.innerText === 'keyboard_arrow_right') {
-            icon.innerText = 'keyboard_arrow_down';
-          } else {
-            icon.innerText = 'keyboard_arrow_right';
+          if (icon.innerText === 'keyboard_arrow_right' || icon.innerText === 'keyboard_arrow_down') {
+            icon.innerText = subMenu.classList.contains('hidden') ? 'keyboard_arrow_right' : 'keyboard_arrow_down';
           }
         }
       }
@@ -649,6 +790,7 @@
     // Filter Category Handler
     function filterCategory(category, el) {
       currentCategory = category;
+      currentPage = 1; // Reset to first page
       
       // Reset active styles on all sidebar buttons
       document.querySelectorAll('.catalog-sidebar-item').forEach(item => {
@@ -663,7 +805,7 @@
       } else {
         // Triggered from category cards, find corresponding button
         let buttons = Array.from(document.querySelectorAll('.catalog-sidebar-item'));
-        let targetBtn = buttons.find(b => b.textContent.trim() === category);
+        let targetBtn = buttons.find(b => b.textContent.trim().startsWith(category));
         if (category === 'all') {
           targetBtn = buttons.find(b => b.textContent.trim().includes('Ver Todo'));
         }
@@ -688,7 +830,10 @@
       
       // Scroll smoothly down to the product explorer when clicking category bento grid cards
       if (!el) {
-        document.getElementById('sidebar-nav').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const sidebar = document.getElementById('sidebar-nav');
+        if (sidebar) {
+          sidebar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
     }
 
@@ -701,7 +846,9 @@
       if (currentCategory === 'all') {
         filtered = allProducts;
       } else if (currentCategory === 'Gabinetes') {
-        filtered = allProducts.filter(p => p.category && p.category.includes('Gabinete'));
+        filtered = allProducts.filter(p => p.category === 'Gabinete de Piso' || p.category === 'Gabinete de Pared');
+      } else if (currentCategory === 'Canaletas') {
+        filtered = allProducts.filter(p => p.category === 'Canaleta de Pared' || p.category === 'Canaleta de Piso');
       } else {
         filtered = allProducts.filter(p => p.category === currentCategory);
       }
@@ -713,28 +860,45 @@
             <p class="mt-2">No se encontraron productos en esta categoría.</p>
           </div>
         `;
+        const pagContainer = document.getElementById('pagination-container');
+        if (pagContainer) pagContainer.innerHTML = '';
         return;
       }
       
+      // Pagination Math
+      const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+      if (currentPage > totalPages) {
+        currentPage = Math.max(1, totalPages);
+      }
+      
+      const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+      const endIndex = startIndex + ITEMS_PER_PAGE;
+      const paginated = filtered.slice(startIndex, endIndex);
+      
       let html = '';
-      filtered.forEach(product => {
+      paginated.forEach(product => {
+        const safeName = product.name.replace(/'/g, "\\'");
+        const safeBrand = (product.brand || 'SATRA').replace(/'/g, "\\'");
+        const safeDesc = (product.description || '').replace(/'/g, "\\'");
+        const safeImg = product.image_url || 'media/images/neokonectlogo.webp';
+        
         html += `
           <div class="bg-white border border-outline-variant p-4 flex flex-col hover:border-secondary transition-all">
-            <div class="aspect-square bg-slate-50 mb-4 overflow-hidden relative group">
-              <img alt="${product.name}" class="w-full h-full object-contain" src="${product.image_url || 'media/images/neokonectlogo.webp'}">
+            <div onclick="showProductModal('${safeName}', '${product.sku}', '${safeBrand}', '${safeImg}', '${safeDesc}')" class="aspect-square bg-slate-50 mb-4 overflow-hidden relative group cursor-pointer">
+              <img alt="${product.name}" class="w-full h-full object-contain" src="${safeImg}">
               <div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span class="bg-white px-4 py-2 text-body-sm font-bold shadow-sm">VER DETALLES</span>
+                <span class="bg-white px-4 py-2 text-body-sm font-bold shadow-sm">VER MÁS</span>
               </div>
             </div>
             <div class="flex justify-between items-start mb-2">
               <span class="font-label-caps text-[10px] text-secondary-container bg-secondary-container/10 px-2 py-0.5">${product.brand || 'SATRA'}</span>
               <span class="text-on-surface-variant text-[10px] font-mono">SKU: ${product.sku}</span>
             </div>
-            <h4 class="font-title-md text-on-surface mb-2 leading-tight">${product.name}</h4>
+            <h4 class="font-title-md text-on-surface mb-2 leading-tight cursor-pointer hover:text-secondary" onclick="showProductModal('${safeName}', '${product.sku}', '${safeBrand}', '${safeImg}', '${safeDesc}')">${product.name}</h4>
             <p class="text-on-surface-variant text-body-sm mb-6 flex-grow">
               ${product.description || ''}
             </p>
-            <button onclick="addToCart('${product.name.replace(/'/g, "\\'")}', '${product.sku}', '${(product.brand || 'SATRA').replace(/'/g, "\\'")}', '${product.image_url}', '${(product.description || '').replace(/'/g, "\\'")}')" class="w-full bg-primary text-on-primary font-bold py-3 hover:bg-secondary transition-colors text-body-sm">
+            <button onclick="addToCart('${safeName}', '${product.sku}', '${safeBrand}', '${safeImg}', '${safeDesc}')" class="w-full bg-primary text-on-primary font-bold py-3 hover:bg-secondary transition-colors text-body-sm">
               COTIZAR PROYECTO
             </button>
           </div>
@@ -746,11 +910,115 @@
       const countBadge = document.getElementById('catalog-count-badge');
       if (countBadge) {
         const catName = currentCategory === 'all' ? 'Catálogo General' : currentCategory;
-        countBadge.innerHTML = `Mostrando <span class="font-bold text-on-surface">${filtered.length} de ${allProducts.length}</span> productos en <span class="font-bold text-on-surface">${catName}</span>`;
+        countBadge.innerHTML = `Mostrando <span class="font-bold text-on-surface">${paginated.length} de ${filtered.length}</span> productos en <span class="font-bold text-on-surface">${catName}</span>`;
+      }
+      
+      renderPagination(totalPages);
+    }
+    
+    // Dynamic Pagination renderer
+    function renderPagination(totalPages) {
+      const container = document.getElementById('pagination-container');
+      if (!container) return;
+      
+      if (totalPages <= 1) {
+        container.innerHTML = '';
+        return;
+      }
+      
+      let html = '';
+      
+      // Prev button
+      html += `
+        <button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''} class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-surface-container-low transition-all ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+      `;
+      
+      for (let i = 1; i <= totalPages; i++) {
+        if (i === currentPage) {
+          html += `
+            <button class="w-10 h-10 flex items-center justify-center border border-secondary bg-secondary text-on-primary font-bold">${i}</button>
+          `;
+        } else {
+          html += `
+            <button onclick="changePage(${i})" class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-surface-container-low transition-all">${i}</button>
+          `;
+        }
+      }
+      
+      // Next button
+      html += `
+        <button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''} class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-surface-container-low transition-all ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+      `;
+      
+      container.innerHTML = html;
+    }
+    
+    function changePage(page) {
+      currentPage = page;
+      renderFilteredProducts();
+      // Scroll smoothly back to top of product grid
+      const grid = document.getElementById('product-grid');
+      if (grid) {
+        grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
 
-    // Fetch and render products from Supabase + merge local SATRA
+    // Modal Control Functions
+    function showProductModal(name, sku, brand, img, desc) {
+      const modal = document.getElementById('product-modal');
+      const modalImg = document.getElementById('modal-product-img');
+      const modalBrand = document.getElementById('modal-product-brand');
+      const modalSku = document.getElementById('modal-product-sku');
+      const modalName = document.getElementById('modal-product-name');
+      const modalDesc = document.getElementById('modal-product-desc');
+      const modalAction = document.getElementById('modal-product-action');
+      
+      if (!modal) return;
+      
+      modalImg.src = img || 'media/images/neokonectlogo.webp';
+      modalImg.alt = name;
+      modalBrand.textContent = brand || 'SATRA';
+      modalSku.textContent = `SKU: ${sku}`;
+      modalName.textContent = name;
+      modalDesc.textContent = desc || '';
+      
+      // Update action button click handler
+      modalAction.onclick = () => {
+        addToCart(name, sku, brand, img, desc);
+        closeProductModal();
+      };
+      
+      modal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+    
+    function closeProductModal() {
+      const modal = document.getElementById('product-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+      }
+      document.body.classList.remove('overflow-hidden');
+    }
+    
+    // Close modal when clicking outside content area or pressing Escape
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('product-modal');
+      if (e.target === modal) {
+        closeProductModal();
+      }
+    });
+    
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeProductModal();
+      }
+    });
+
+    // Fetch and render products from Supabase + merge local
     async function loadProducts() {
       const grid = document.getElementById('product-grid');
       if (!grid) return;
@@ -778,7 +1046,7 @@
         console.warn('Error fetching products from Supabase, using local catalog:', err);
       }
 
-      // Merge local SATRA products with DB products (avoiding duplicates by SKU)
+      // Merge local products with DB products (avoiding duplicates by SKU)
       allProducts = [...LOCAL_PRODUCTS];
       dbProducts.forEach(dbProd => {
         if (!allProducts.some(p => p.sku === dbProd.sku)) {
@@ -796,5 +1064,36 @@
       loadProducts();
     }
   </script>
+
+  <!-- Product Modal -->
+  <div id="product-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-all duration-300">
+    <div class="bg-white dark:bg-primary-container max-w-2xl w-full border border-outline-variant dark:border-outline shadow-2xl relative flex flex-col md:flex-row overflow-hidden">
+      <!-- Close button -->
+      <button onclick="closeProductModal()" class="absolute top-4 right-4 bg-white/80 dark:bg-black/50 hover:bg-white dark:hover:bg-black p-2 rounded-full transition-all text-on-surface z-10 flex items-center justify-center">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      
+      <!-- Image Column -->
+      <div class="w-full md:w-1/2 aspect-square bg-slate-50 flex items-center justify-center p-6 border-r border-outline-variant/30">
+        <img id="modal-product-img" src="" alt="" class="max-w-full max-h-full object-contain transition-transform duration-300 hover:scale-105">
+      </div>
+      
+      <!-- Details Column -->
+      <div class="w-full md:w-1/2 p-8 flex flex-col justify-between">
+        <div>
+          <div class="flex justify-between items-start gap-2 mb-4">
+            <span id="modal-product-brand" class="font-label-caps text-[10px] text-secondary-container bg-secondary-container/10 px-2 py-0.5"></span>
+            <span id="modal-product-sku" class="text-on-surface-variant text-[10px] font-mono"></span>
+          </div>
+          <h3 id="modal-product-name" class="font-title-md text-headline-lg-mobile text-on-surface mb-4 leading-tight"></h3>
+          <p id="modal-product-desc" class="text-on-surface-variant text-body-sm leading-relaxed mb-6"></p>
+        </div>
+        
+        <button id="modal-product-action" onclick="" class="w-full bg-primary text-on-primary font-bold py-3 hover:bg-secondary transition-colors text-body-sm">
+          COTIZAR PROYECTO
+        </button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
