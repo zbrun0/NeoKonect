@@ -105,7 +105,7 @@
   </style>
 </head>
 <body class="bg-background text-on-surface">
-  <!-- TopNavBar -->
+
   <header class="bg-surface-container-lowest dark:bg-primary-container full-width top-0 sticky border-b border-outline-variant dark:border-outline z-50">
     <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 max-w-container-max mx-auto">
       <a href="index.html" class="flex items-center gap-3">
@@ -129,8 +129,7 @@
         </button>
       </div>
     </div>
-  
-    <!-- Mobile Menu -->
+
   <div id="mobile-menu" class="hidden md:hidden bg-surface-container-lowest border-b border-outline-variant absolute top-16 left-0 w-full z-50 flex flex-col p-6 gap-4 shadow-lg transition-all duration-300">
     <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="index.html">INICIO</a>
     <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="nosotros.html">NOSOTROS</a>
@@ -139,8 +138,6 @@
     <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="contacto.html">CONTÁCTANOS</a>
   </div>
   </header>
-
-  
 
   <main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16">
     <header class="mb-12">
@@ -152,7 +149,7 @@
     </header>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
-      <!-- Left side: Cart items (7 cols) -->
+
       <section class="lg:col-span-7 space-y-6">
         <div class="border border-outline-variant bg-surface-container-lowest p-6 rounded">
           <h2 class="font-title-md text-title-md text-primary mb-6 flex justify-between items-center">
@@ -163,10 +160,9 @@
           </h2>
 
           <div id="cart-items-container" class="space-y-6 divide-y divide-outline-variant">
-            <!-- Dynamic products will be inserted here by JS -->
+
           </div>
 
-          <!-- Empty cart state -->
           <div id="empty-cart-state" class="hidden py-12 text-center flex flex-col items-center gap-4">
             <span class="material-symbols-outlined text-on-surface-variant text-6xl" style="font-variation-settings: 'wght' 200;">shopping_basket</span>
             <p class="font-body-sm text-body-lg text-on-surface-variant">No ha añadido ningún componente para cotización.</p>
@@ -177,7 +173,6 @@
         </div>
       </section>
 
-      <!-- Right side: Quote form (5 cols) -->
       <section id="quote-form-container" class="lg:col-span-5 bg-surface-container-low border border-outline-variant p-8 rounded shadow-sm">
         <h2 class="font-title-md text-title-md text-primary mb-6 flex items-center gap-2">
           <span class="material-symbols-outlined text-secondary">request_quote</span> Datos para la Cotización
@@ -223,7 +218,6 @@
     </div>
   </main>
 
-  <!-- Footer -->
   <footer class="bg-surface-container-low dark:bg-primary-container full-width bottom-0 border-t border-outline-variant dark:border-outline">
     <div class="grid grid-cols-1 md:grid-cols-5 gap-gutter px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
       <div class="flex flex-col gap-4">
@@ -289,7 +283,6 @@
     </div>
   </footer>
 
-  <!-- Supabase Integration -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-client.js"></script>
 
@@ -302,7 +295,6 @@
       });
     }
 
-    // Cart details logic
     function getCart() {
       return JSON.parse(localStorage.getItem('cart') || '[]');
     }
@@ -402,7 +394,7 @@
 
     async function submitQuoteRequest(event) {
       event.preventDefault();
-      
+
       const submitBtn = event.target.querySelector('button[type="submit"]');
       const originalBtnText = submitBtn.textContent;
       submitBtn.disabled = true;
@@ -436,8 +428,7 @@
         if (error) throw error;
 
         alert('¡Requerimiento Recibido!\n\nSe ha generado la solicitud de cotización formal para ' + company + '.\nUn especialista técnico se pondrá en contacto con ' + contact + ' en el correo ' + email + ' con la cotización formal de los componentes estructurados.');
-        
-        // Clear cart
+
         localStorage.setItem('cart', '[]');
         updateCartBadge();
         renderCart();
@@ -450,7 +441,6 @@
       }
     }
 
-    // Initial render
     updateCartBadge();
     renderCart();
   </script>

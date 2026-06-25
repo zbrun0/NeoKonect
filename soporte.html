@@ -121,7 +121,7 @@
   </style>
 </head>
 <body class="bg-background text-on-surface">
-  <!-- TopNavBar -->
+
   <header class="bg-surface-container-lowest dark:bg-primary-container full-width top-0 sticky border-b border-outline-variant dark:border-outline z-50">
     <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 max-w-container-max mx-auto">
       <a href="index.html" class="flex items-center gap-3">
@@ -145,8 +145,7 @@
         </button>
       </div>
     </div>
-  
-    <!-- Mobile Menu -->
+
   <div id="mobile-menu" class="hidden md:hidden bg-surface-container-lowest border-b border-outline-variant absolute top-16 left-0 w-full z-50 flex flex-col p-6 gap-4 shadow-lg transition-all duration-300">
     <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="index.html">INICIO</a>
     <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="nosotros.html">NOSOTROS</a>
@@ -156,10 +155,8 @@
   </div>
   </header>
 
-  
-
   <main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16">
-    <!-- Page Header -->
+
     <header class="mb-12">
       <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest block mb-2">Centro de Ayuda</span>
       <h1 class="font-display-lg text-display-lg text-primary">Soporte Técnico y FAQ</h1>
@@ -169,13 +166,12 @@
     </header>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
-      <!-- Left side: FAQs Accordion (7 cols) -->
+
       <section class="lg:col-span-7 space-y-4">
         <h2 class="font-title-md text-title-md text-primary mb-6 flex items-center gap-2">
           <span class="material-symbols-outlined text-secondary">help</span> Preguntas Frecuentes (FAQ)
         </h2>
 
-        <!-- FAQ Item 1 -->
         <div class="border border-outline-variant bg-surface-container-lowest p-6 rounded transition-all">
           <button class="faq-toggle w-full flex justify-between items-center text-left font-title-md text-body-lg text-primary focus:outline-none">
             <span>¿Con qué certificaciones cumplen sus cables de cobre CAT6 y CAT6A?</span>
@@ -186,7 +182,6 @@
           </div>
         </div>
 
-        <!-- FAQ Item 2 -->
         <div class="border border-outline-variant bg-surface-container-lowest p-6 rounded transition-all">
           <button class="faq-toggle w-full flex justify-between items-center text-left font-title-md text-body-lg text-primary focus:outline-none">
             <span>¿Cuál es el tiempo promedio de respuesta para cotizaciones complejas?</span>
@@ -197,7 +192,6 @@
           </div>
         </div>
 
-        <!-- FAQ Item 3 -->
         <div class="border border-outline-variant bg-surface-container-lowest p-6 rounded transition-all">
           <button class="faq-toggle w-full flex justify-between items-center text-left font-title-md text-body-lg text-primary focus:outline-none">
             <span>¿Ofrecen servicios de certificación de cableado estructurado ya instalado?</span>
@@ -208,7 +202,6 @@
           </div>
         </div>
 
-        <!-- FAQ Item 4 -->
         <div class="border border-outline-variant bg-surface-container-lowest p-6 rounded transition-all">
           <button class="faq-toggle w-full flex justify-between items-center text-left font-title-md text-body-lg text-primary focus:outline-none">
             <span>¿Cuáles son sus políticas de cambio de productos o bobinas de cable?</span>
@@ -220,7 +213,6 @@
         </div>
       </section>
 
-      <!-- Right side: Ticket form (5 cols) -->
       <section class="lg:col-span-5 bg-surface-container-low border border-outline-variant p-8 rounded shadow-sm">
         <h2 class="font-title-md text-title-md text-primary mb-6 flex items-center gap-2">
           <span class="material-symbols-outlined text-secondary">support_agent</span> Crear Ticket de Soporte
@@ -282,7 +274,6 @@
     </div>
   </main>
 
-  <!-- Footer -->
   <footer class="bg-surface-container-low dark:bg-primary-container full-width bottom-0 border-t border-outline-variant dark:border-outline">
     <div class="grid grid-cols-1 md:grid-cols-5 gap-gutter px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
       <div class="flex flex-col gap-4">
@@ -348,7 +339,6 @@
     </div>
   </footer>
 
-  <!-- Supabase Integration -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-client.js"></script>
 
@@ -361,15 +351,13 @@
       });
     }
 
-    // Toggle FAQ answers with smooth transitions
     document.querySelectorAll('.faq-toggle').forEach(button => {
       button.addEventListener('click', () => {
         const answer = button.nextElementSibling;
         const icon = button.querySelector('.faq-icon');
-        
+
         const isOpen = answer.classList.contains('open');
-        
-        // Close all other open answers
+
         document.querySelectorAll('.faq-answer').forEach(ans => {
           ans.classList.remove('open');
           ans.style.maxHeight = null;
@@ -386,7 +374,6 @@
       });
     });
 
-    // Cart badge updater
     function updateCartBadge() {
       const cart = JSON.parse(localStorage.getItem('cart') || '[]');
       const count = cart.reduce((acc, item) => acc + item.quantity, 0);
@@ -402,7 +389,6 @@
     }
     updateCartBadge();
 
-    // Ticket Form Submission to Supabase
     const ticketForm = document.getElementById('ticket-form');
     if (ticketForm) {
       ticketForm.addEventListener('submit', async (e) => {
@@ -421,7 +407,6 @@
         const subject = document.getElementById('subject').value;
         const description = document.getElementById('description').value;
 
-        // Generate ticket tracking number
         const ticketNumber = 'NK-TKT-' + Math.floor(Math.random() * 90000 + 10000);
 
         try {

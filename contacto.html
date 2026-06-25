@@ -103,7 +103,7 @@
   </style>
 </head>
 <body class="bg-background text-on-surface">
-  <!-- TopNavBar -->
+
   <header class="bg-surface-container-lowest dark:bg-primary-container full-width top-0 sticky border-b border-outline-variant dark:border-outline z-50">
     <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 max-w-container-max mx-auto">
       <a href="index.html" class="flex items-center gap-3">
@@ -127,8 +127,7 @@
         </button>
       </div>
     </div>
-  
-    <!-- Mobile Menu -->
+
   <div id="mobile-menu" class="hidden md:hidden bg-surface-container-lowest border-b border-outline-variant absolute top-16 left-0 w-full z-50 flex flex-col p-6 gap-4 shadow-lg transition-all duration-300">
     <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="index.html">INICIO</a>
     <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="nosotros.html">NOSOTROS</a>
@@ -138,16 +137,14 @@
   </div>
   </header>
 
-  
-  
   <main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16">
     <header class="mb-12">
       <h1 class="font-display-lg text-display-lg text-primary mb-4">Hablemos de su infraestructura</h1>
       <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Expertos en soluciones de conectividad y cableado estructurado. Contáctenos para asesoría técnica especializada en sus proyectos corporativos.</p>
     </header>
-    
+
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-      <!-- Left: Form -->
+
       <section class="bg-surface-container-lowest border border-outline-variant p-8 rounded-lg shadow-sm">
         <form id="contact-form" class="flex flex-col gap-6">
           <div class="flex flex-col gap-2">
@@ -167,12 +164,11 @@
           </button>
         </form>
       </section>
-      
-      <!-- Right: Map and Locations -->
+
       <section id="sedes" class="flex flex-col gap-8">
-        
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <!-- Sede Principal (Full Width with Image) -->
+
           <div class="md:col-span-2 border border-outline-variant bg-surface-container-lowest hover:border-secondary transition-all flex flex-col md:flex-row overflow-hidden group">
             <div class="w-full md:w-1/2 h-48 md:h-auto overflow-hidden bg-surface-container-low">
               <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="media/images/Sede_Principal.webp" alt="Sede Principal NeoKonect">
@@ -217,8 +213,7 @@
       </section>
     </div>
   </main>
-  
-  <!-- Footer -->
+
   <footer class="bg-surface-container-low dark:bg-primary-container full-width bottom-0 border-t border-outline-variant dark:border-outline">
     <div class="grid grid-cols-1 md:grid-cols-5 gap-gutter px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
       <div class="flex flex-col gap-4">
@@ -284,7 +279,6 @@
     </div>
   </footer>
 
-  <!-- Supabase Integration -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-client.js"></script>
 
@@ -297,7 +291,6 @@
       });
     }
 
-    // Cart badge updater
     function updateCartBadge() {
       const cart = JSON.parse(localStorage.getItem('cart') || '[]');
       const count = cart.reduce((acc, item) => acc + item.quantity, 0);
@@ -313,20 +306,57 @@
     }
     updateCartBadge();
 
-    // Contact Form Submission to Supabase
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
       contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const originalBtnText = submitBtn.textContent;
         submitBtn.disabled = true;
         submitBtn.textContent = 'Enviando...';
 
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const message = document.getElementById('message').value;
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        const messageInput = document.getElementById('message');
+
+        emailInput.classList.remove('border-red-500');
+        phoneInput.classList.remove('border-red-500');
+        messageInput.classList.remove('border-red-500');
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailInput.value.trim())) {
+          alert('Por favor, ingrese un correo electrónico válido.');
+          emailInput.classList.add('border-red-500');
+          emailInput.focus();
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+          return;
+        }
+
+        const cleanPhone = phoneInput.value.trim().replace(/\s/g, '');
+        const phoneRegex = /^(?:\+?51)?9\d{8}$/;
+        if (!phoneRegex.test(cleanPhone)) {
+          alert('Por favor, ingrese un número de teléfono celular de 9 dígitos válido (ej. 9XXXXXXXX o +51 9XXXXXXXX).');
+          phoneInput.classList.add('border-red-500');
+          phoneInput.focus();
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+          return;
+        }
+
+        if (messageInput.value.trim().length < 10) {
+          alert('El mensaje de requerimiento técnico debe tener al menos 10 caracteres.');
+          messageInput.classList.add('border-red-500');
+          messageInput.focus();
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+          return;
+        }
+
+        const email = emailInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const message = messageInput.value.trim();
 
         try {
           if (!window.supabaseClient) {

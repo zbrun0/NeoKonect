@@ -114,7 +114,7 @@
   </style>
 </head>
 <body class="bg-background text-on-surface font-body-sm selection:bg-secondary-container selection:text-on-secondary-container">
-  <!-- TopNavBar -->
+
   <header class="bg-surface-container-lowest dark:bg-primary-container border-b border-outline-variant dark:border-outline full-width top-0 sticky z-50 flat no shadows">
     <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 max-w-container-max mx-auto">
       <a href="index.html" class="flex items-center gap-3">
@@ -138,8 +138,7 @@
         </button>
       </div>
     </div>
-  
-    <!-- Mobile Menu -->
+
   <div id="mobile-menu" class="hidden md:hidden bg-surface-container-lowest border-b border-outline-variant absolute top-16 left-0 w-full z-50 flex flex-col p-6 gap-4 shadow-lg transition-all duration-300">
     <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="index.html">INICIO</a>
     <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="nosotros.html">NOSOTROS</a>
@@ -149,16 +148,13 @@
   </div>
   </header>
 
-  
-  
   <main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
-    <!-- Page Title -->
+
     <section class="mb-12">
       <h1 class="font-headline-lg text-headline-lg text-primary mb-2">Catálogo de Productos</h1>
       <p class="text-on-surface-variant font-body-lg">Soluciones de infraestructura de telecomunicaciones de alta precisión.</p>
     </section>
-    
-    <!-- Category Bento Grid -->
+
     <section class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-16">
       <div onclick="filterCategory('Cableado de Cobre')" class="md:col-span-2 group relative overflow-hidden bg-white border border-outline-variant p-6 h-64 flex flex-col justify-end cursor-pointer">
         <div class="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-500">
@@ -170,7 +166,7 @@
           <p class="text-on-surface-variant text-body-sm mt-1">U/UTP, F/UTP, SF/UTP en CAT6 y CAT6A.</p>
         </div>
       </div>
-      
+
       <div onclick="filterCategory('Gabinete de Piso')" class="group relative overflow-hidden bg-white border border-outline-variant p-6 h-64 flex flex-col justify-end cursor-pointer">
         <div class="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-500">
           <img alt="Gabinetes" class="w-full h-full object-cover opacity-20 group-hover:opacity-40" data-alt="A side view of a sleek, black professional server cabinet standing in a clean, brightly lit data center with polished floors. The mood is authoritative and utilitarian, showcasing high-quality industrial hardware. The lighting is diffused, highlighting the vertical lines and perforated doors of the enclosure in a minimalist B2B environment." src="media/images/sidebar_cabinets.webp">
@@ -180,7 +176,7 @@
           <p class="text-on-surface-variant text-body-sm mt-1">Pared y Piso.</p>
         </div>
       </div>
-      
+
       <div onclick="filterCategory('Canaletas')" class="group relative overflow-hidden bg-white border border-outline-variant p-6 h-64 flex flex-col justify-end cursor-pointer">
         <div class="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-500">
           <img alt="Canaletas" class="w-full h-full object-cover opacity-20 group-hover:opacity-40" data-alt="A detailed macro shot of industrial PVC cable trunking and metal conduits organized neatly on a white wall. The lighting is bright and architectural, casting subtle soft shadows that define the modular shapes. The scene is clean and orderly, representing the efficiency and professional organization of modern workspace wiring solutions." src="media/images/sidebar_trunks.webp">
@@ -190,7 +186,7 @@
           <p class="text-on-surface-variant text-body-sm mt-1">Gestión de rutas de cableado.</p>
         </div>
       </div>
-      
+
       <div onclick="filterCategory('Rotulado')" class="md:col-span-4 group relative overflow-hidden bg-white border border-outline-variant p-6 h-48 flex flex-col justify-center cursor-pointer">
         <div class="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-500">
           <img alt="Rotulado" class="w-full h-full object-cover opacity-10 group-hover:opacity-20" data-alt="An industrial handheld label printer being used by a technician in a dark blue technical work shirt. The printer is generating a white adhesive label with sharp black text for a telecommunications rack. The lighting is focused and professional, highlighting the utilitarian efficiency of the tool in a modern B2B electrical and data environment." src="media/images/sidebar_labeling.webp">
@@ -201,10 +197,9 @@
         </div>
       </div>
     </section>
-    
-    <!-- Catalog Explorer -->
+
     <div class="flex flex-col md:flex-row gap-gutter">
-      <!-- Sidebar Navigation Tree -->
+
       <aside class="w-full md:w-64 flex-shrink-0">
         <div class="sticky top-24 space-y-4">
           <h4 class="font-label-caps text-primary border-b border-outline-variant pb-2">CATEGORÍAS</h4>
@@ -215,8 +210,7 @@
             <button onclick="filterCategory('Cableado de Cobre', this)" class="catalog-sidebar-item w-full text-left text-on-surface-variant hover:text-secondary font-body-sm py-2 px-3 flex justify-between items-center rounded border-l-4 border-transparent transition-all">
               Cableado de Cobre
             </button>
-            
-            <!-- Gabinetes expandable group -->
+
             <div class="mb-1">
               <button onclick="toggleSubmenu(this)" class="w-full text-left text-on-surface-variant hover:text-secondary font-body-sm py-2 px-3 flex justify-between items-center rounded border-l-4 border-transparent transition-all">
                 Gabinetes
@@ -231,11 +225,11 @@
                 </button>
               </div>
             </div>
-            
+
             <button onclick="filterCategory('Accesorios para Gabinetes', this)" class="catalog-sidebar-item w-full text-left text-on-surface-variant hover:text-secondary font-body-sm py-2 px-3 flex justify-between items-center rounded border-l-4 border-transparent transition-all">
               Accesorios para Gabinetes
             </button>
-            <!-- Canaletas expandable group -->
+
             <div class="mb-1">
               <button onclick="toggleSubmenu(this)" class="w-full text-left text-on-surface-variant hover:text-secondary font-body-sm py-2 px-3 flex justify-between items-center rounded border-l-4 border-transparent transition-all">
                 Canaletas
@@ -259,26 +253,23 @@
           </nav>
         </div>
       </aside>
-      
-      <!-- Product Grid -->
+
       <div class="flex-grow">
         <div class="flex justify-between items-center mb-8">
           <div id="catalog-count-badge" class="text-body-sm text-on-surface-variant">Cargando catálogo...</div>
         </div>
-        
+
         <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
-          <!-- Dynamically loaded -->
+
         </div>
-        
-        <!-- Pagination -->
+
         <div id="pagination-container" class="mt-12 flex justify-center items-center gap-2">
-          <!-- Dynamically loaded -->
+
         </div>
       </div>
     </div>
   </main>
-  
-  <!-- Footer -->
+
   <footer class="bg-surface-container-low dark:bg-primary-container full-width bottom-0 border-t border-outline-variant dark:border-outline">
     <div class="grid grid-cols-1 md:grid-cols-5 gap-gutter px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
       <div class="flex flex-col gap-4">
@@ -344,7 +335,6 @@
     </div>
   </footer>
 
-  <!-- Supabase Integration -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-client.js"></script>
 
@@ -377,7 +367,6 @@
       }
     }
 
-    // Cart logic
     function addToCart(name, sku, brand, img, desc) {
       const cart = JSON.parse(localStorage.getItem('cart') || '[]');
       const existing = cart.find(item => item.sku === sku);
@@ -423,30 +412,28 @@
         <a href="carrito.html" class="ml-4 bg-secondary text-on-primary px-3 py-1.5 text-[12px] font-bold rounded hover:bg-secondary-container transition-all">Ver Carrito</a>
       `;
       toast.classList.remove('translate-y-10', 'opacity-0');
-      
+
       if (window.toastTimeout) clearTimeout(window.toastTimeout);
       window.toastTimeout = setTimeout(() => {
         toast.classList.add('translate-y-10', 'opacity-0');
       }, 4000);
     }
 
-    // Filter Category Handler
     function filterCategory(category, el) {
       currentCategory = category;
-      currentPage = 1; // Reset to first page
-      
-      // Reset active styles on all sidebar buttons
+      currentPage = 1;
+
       document.querySelectorAll('.catalog-sidebar-item').forEach(item => {
         item.classList.remove('active', 'bg-surface-container-low', 'border-secondary', 'font-bold');
         item.classList.add('border-transparent', 'text-on-surface-variant');
       });
-      
+
       if (el) {
-        // Active clicked button
+
         el.classList.add('active', 'bg-surface-container-low', 'border-secondary', 'font-bold');
         el.classList.remove('border-transparent');
       } else {
-        // Triggered from category cards, find corresponding button
+
         let buttons = Array.from(document.querySelectorAll('.catalog-sidebar-item'));
         let targetBtn = buttons.find(b => b.textContent.trim().startsWith(category));
         if (category === 'all') {
@@ -455,8 +442,7 @@
         if (targetBtn) {
           targetBtn.classList.add('active', 'bg-surface-container-low', 'border-secondary', 'font-bold');
           targetBtn.classList.remove('border-transparent');
-          
-          // If it is inside sub-menu, expand parent
+
           const parentSubmenu = targetBtn.parentElement;
           if (parentSubmenu && parentSubmenu.classList.contains('hidden')) {
             parentSubmenu.classList.remove('hidden');
@@ -468,10 +454,9 @@
           }
         }
       }
-      
+
       renderFilteredProducts();
-      
-      // Scroll smoothly down to the product explorer when clicking category bento grid cards
+
       if (!el) {
         const sidebar = document.getElementById('sidebar-nav');
         if (sidebar) {
@@ -480,11 +465,10 @@
       }
     }
 
-    // Render Filtered Products
     function renderFilteredProducts() {
       const grid = document.getElementById('product-grid');
       if (!grid) return;
-      
+
       let filtered = [];
       if (currentCategory === 'all') {
         filtered = allProducts;
@@ -495,7 +479,7 @@
       } else {
         filtered = allProducts.filter(p => p.category === currentCategory);
       }
-      
+
       if (filtered.length === 0) {
         grid.innerHTML = `
           <div class="col-span-full py-12 text-center text-on-surface-variant font-body-sm">
@@ -507,24 +491,23 @@
         if (pagContainer) pagContainer.innerHTML = '';
         return;
       }
-      
-      // Pagination Math
+
       const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
       if (currentPage > totalPages) {
         currentPage = Math.max(1, totalPages);
       }
-      
+
       const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
       const endIndex = startIndex + ITEMS_PER_PAGE;
       const paginated = filtered.slice(startIndex, endIndex);
-      
+
       let html = '';
       paginated.forEach(product => {
         const safeName = product.name.replace(/'/g, "\\'");
         const safeBrand = (product.brand || 'SATRA').replace(/'/g, "\\'");
         const safeDesc = (product.description || '').replace(/'/g, "\\'");
         const safeImg = product.image_url || 'media/images/neokonectlogo.webp';
-        
+
         html += `
           <div class="bg-white border border-outline-variant p-4 flex flex-col hover:border-secondary transition-all">
             <div onclick="showProductModal('${safeName}', '${product.sku}', '${safeBrand}', '${safeImg}', '${safeDesc}')" class="aspect-square bg-slate-50 mb-4 overflow-hidden relative group cursor-pointer">
@@ -548,36 +531,33 @@
         `;
       });
       grid.innerHTML = html;
-      
-      // Update count badge
+
       const countBadge = document.getElementById('catalog-count-badge');
       if (countBadge) {
         const catName = currentCategory === 'all' ? 'Catálogo General' : currentCategory;
         countBadge.innerHTML = `Mostrando <span class="font-bold text-on-surface">${paginated.length} de ${filtered.length}</span> productos en <span class="font-bold text-on-surface">${catName}</span>`;
       }
-      
+
       renderPagination(totalPages);
     }
-    
-    // Dynamic Pagination renderer
+
     function renderPagination(totalPages) {
       const container = document.getElementById('pagination-container');
       if (!container) return;
-      
+
       if (totalPages <= 1) {
         container.innerHTML = '';
         return;
       }
-      
+
       let html = '';
-      
-      // Prev button
+
       html += `
         <button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''} class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-surface-container-low transition-all ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}">
           <span class="material-symbols-outlined">chevron_left</span>
         </button>
       `;
-      
+
       for (let i = 1; i <= totalPages; i++) {
         if (i === currentPage) {
           html += `
@@ -589,28 +569,26 @@
           `;
         }
       }
-      
-      // Next button
+
       html += `
         <button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''} class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-surface-container-low transition-all ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}">
           <span class="material-symbols-outlined">chevron_right</span>
         </button>
       `;
-      
+
       container.innerHTML = html;
     }
-    
+
     function changePage(page) {
       currentPage = page;
       renderFilteredProducts();
-      // Scroll smoothly back to top of product grid
+
       const grid = document.getElementById('product-grid');
       if (grid) {
         grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
 
-    // Modal Control Functions
     function showProductModal(name, sku, brand, img, desc) {
       const modal = document.getElementById('product-modal');
       const modalImg = document.getElementById('modal-product-img');
@@ -619,26 +597,25 @@
       const modalName = document.getElementById('modal-product-name');
       const modalDesc = document.getElementById('modal-product-desc');
       const modalAction = document.getElementById('modal-product-action');
-      
+
       if (!modal) return;
-      
+
       modalImg.src = img || 'media/images/neokonectlogo.webp';
       modalImg.alt = name;
       modalBrand.textContent = brand || 'SATRA';
       modalSku.textContent = `SKU: ${sku}`;
       modalName.textContent = name;
       modalDesc.textContent = desc || '';
-      
-      // Update action button click handler
+
       modalAction.onclick = () => {
         addToCart(name, sku, brand, img, desc);
         closeProductModal();
       };
-      
+
       modal.classList.remove('hidden');
       document.body.classList.add('overflow-hidden');
     }
-    
+
     function closeProductModal() {
       const modal = document.getElementById('product-modal');
       if (modal) {
@@ -646,22 +623,20 @@
       }
       document.body.classList.remove('overflow-hidden');
     }
-    
-    // Close modal when clicking outside content area or pressing Escape
+
     window.addEventListener('click', (e) => {
       const modal = document.getElementById('product-modal');
       if (e.target === modal) {
         closeProductModal();
       }
     });
-    
+
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeProductModal();
       }
     });
 
-    // Fetch and render products from Supabase + merge local
     async function loadProducts() {
       const grid = document.getElementById('product-grid');
       if (!grid) return;
@@ -680,7 +655,7 @@
             .from('products')
             .select('*')
             .order('category', { ascending: true });
-          
+
           if (!error && data) {
             dbProducts = data;
           }
@@ -689,7 +664,6 @@
         console.warn('Error fetching products from Supabase, using local catalog:', err);
       }
 
-      // Merge local products with DB products (avoiding duplicates by SKU)
       allProducts = [...LOCAL_PRODUCTS];
       dbProducts.forEach(dbProd => {
         if (!allProducts.some(p => p.sku === dbProd.sku)) {
@@ -700,7 +674,6 @@
       renderFilteredProducts();
     }
 
-    // Call loadProducts on startup
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', loadProducts);
     } else {
@@ -708,20 +681,17 @@
     }
   </script>
 
-  <!-- Product Modal -->
   <div id="product-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-all duration-300">
     <div class="bg-white dark:bg-primary-container max-w-2xl w-full border border-outline-variant dark:border-outline shadow-2xl relative flex flex-col md:flex-row overflow-hidden">
-      <!-- Close button -->
+
       <button onclick="closeProductModal()" class="absolute top-4 right-4 bg-white/80 dark:bg-black/50 hover:bg-white dark:hover:bg-black p-2 rounded-full transition-all text-on-surface z-10 flex items-center justify-center">
         <span class="material-symbols-outlined">close</span>
       </button>
-      
-      <!-- Image Column -->
+
       <div class="w-full md:w-1/2 aspect-square bg-slate-50 flex items-center justify-center p-6 border-r border-outline-variant/30">
         <img id="modal-product-img" src="" alt="" class="max-w-full max-h-full object-contain transition-transform duration-300 hover:scale-105">
       </div>
-      
-      <!-- Details Column -->
+
       <div class="w-full md:w-1/2 p-8 flex flex-col justify-between">
         <div>
           <div class="flex justify-between items-start gap-2 mb-4">
@@ -731,7 +701,7 @@
           <h3 id="modal-product-name" class="font-title-md text-headline-lg-mobile text-on-surface mb-4 leading-tight"></h3>
           <p id="modal-product-desc" class="text-on-surface-variant text-body-sm leading-relaxed mb-6"></p>
         </div>
-        
+
         <button id="modal-product-action" onclick="" class="w-full bg-primary text-on-primary font-bold py-3 hover:bg-secondary transition-colors text-body-sm">
           COTIZAR PROYECTO
         </button>

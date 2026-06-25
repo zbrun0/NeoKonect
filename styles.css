@@ -6,23 +6,22 @@
   --surface-color: rgba(10, 17, 32, 0.7);
   --surface-border: rgba(255, 255, 255, 0.08);
   --surface-border-hover: rgba(0, 242, 254, 0.3);
-  
+
   --primary: #00f2fe;
   --secondary: #7f00ff;
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
-  
+
   --gradient-primary: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
   --gradient-glow: linear-gradient(135deg, rgba(0, 242, 254, 0.15) 0%, rgba(127, 0, 255, 0.15) 100%);
   --gradient-dark: linear-gradient(180deg, #050811 0%, #0d1527 100%);
-  
+
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --font-display: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
 }
 
-/* Reset & Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -32,7 +31,7 @@
 body {
   font-family: var(--font-body);
   background-color: var(--bg-color);
-  background-image: 
+  background-image:
     radial-gradient(circle at 20% 30%, rgba(0, 242, 254, 0.05) 0%, transparent 40%),
     radial-gradient(circle at 80% 70%, rgba(127, 0, 255, 0.05) 0%, transparent 40%),
     linear-gradient(var(--bg-grid) 1px, transparent 1px),
@@ -49,14 +48,12 @@ a {
   color: inherit;
 }
 
-/* Typography */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 700;
   letter-spacing: -0.02em;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -71,7 +68,6 @@ h1, h2, h3, h4 {
   background: var(--primary);
 }
 
-/* Header & Navigation */
 .header {
   position: fixed;
   top: 0;
@@ -171,7 +167,6 @@ h1, h2, h3, h4 {
   display: none;
 }
 
-/* Hero Section */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -300,7 +295,6 @@ h1, h2, h3, h4 {
   transform: translateY(-2px);
 }
 
-/* Value Prop Section */
 .value-prop {
   padding: 100px 0;
   position: relative;
@@ -389,7 +383,6 @@ h1, h2, h3, h4 {
   font-size: 14px;
 }
 
-/* Categories / Bento Grid Section */
 .categories {
   padding: 100px 0;
   background: rgba(10, 17, 32, 0.3);
@@ -493,7 +486,6 @@ h1, h2, h3, h4 {
   transform: scale(1.05);
 }
 
-/* Services / Features Summary */
 .services {
   padding: 100px 0;
   position: relative;
@@ -567,7 +559,6 @@ h1, h2, h3, h4 {
   border-color: var(--primary);
 }
 
-/* Footer Section */
 .footer {
   background: #03050a;
   border-top: 1px solid var(--surface-border);
@@ -693,7 +684,6 @@ h1, h2, h3, h4 {
   color: var(--primary);
 }
 
-/* Responsive Styles */
 @media (max-width: 1024px) {
   .hero-title {
     font-size: 44px;
@@ -727,23 +717,23 @@ h1, h2, h3, h4 {
   .nav-links {
     display: none;
   }
-  
+
   .menu-toggle {
     display: block;
   }
-  
+
   .hero-title {
     font-size: 36px;
   }
-  
+
   .grid-3 {
     grid-template-columns: 1fr;
   }
-  
+
   .footer-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .footer-bottom-container {
     flex-direction: column;
     gap: 16px;

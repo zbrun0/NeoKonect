@@ -104,7 +104,7 @@
   </style>
 </head>
 <body class="bg-background text-on-surface">
-  <!-- TopNavBar -->
+
   <header class="bg-surface-container-lowest dark:bg-primary-container full-width top-0 sticky border-b border-outline-variant dark:border-outline z-50">
     <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 max-w-container-max mx-auto">
       <a href="index.html" class="flex items-center gap-3">
@@ -128,8 +128,7 @@
         </button>
       </div>
     </div>
-  
-    <!-- Mobile Menu -->
+
   <div id="mobile-menu" class="hidden md:hidden bg-surface-container-lowest border-b border-outline-variant absolute top-16 left-0 w-full z-50 flex flex-col p-6 gap-4 shadow-lg transition-all duration-300">
     <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="index.html">INICIO</a>
     <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="nosotros.html">NOSOTROS</a>
@@ -139,10 +138,8 @@
   </div>
   </header>
 
-  
-  
   <main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
-    <!-- Hero Intro Section -->
+
     <section class="mb-16">
       <div class="max-w-3xl">
         <h1 class="font-display-lg text-display-lg mb-6 text-primary">Nuestros Servicios</h1>
@@ -151,10 +148,9 @@
         </p>
       </div>
     </section>
-    
-    <!-- Services Detailed Blocks (Bento Style Grid) -->
+
     <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-20">
-      <!-- Service 1: Soluciones de centro de datos -->
+
       <div class="md:col-span-8 bg-surface-container-lowest border border-outline-variant p-base md:p-12 flex flex-col md:flex-row gap-8 items-center group transition-all">
         <div class="w-full md:w-1/2">
           <div class="flex items-center gap-4 mb-6">
@@ -175,8 +171,7 @@
           <img alt="Data Center Solutions" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A high-tech, modern data center aisle featuring rows of sleek black server racks with glowing blue and green status indicators. The environment is impeccably clean, reflecting a minimalist B2B industrial aesthetic with white flooring and professional high-key lighting. The atmosphere is clinical, precise, and authoritative, emphasizing massive computing power and technological reliability in a vast, modular space." src="media/images/service_datacenter.webp">
         </div>
       </div>
-      
-      <!-- Service 2: Infraestructura TI -->
+
       <div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant p-base md:p-8 flex flex-col group transition-all">
         <div class="mb-6 aspect-video bg-surface-container-low overflow-hidden">
           <img alt="IT Infrastructure" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Close-up professional photography of neatly organized blue ethernet cables plugged into a high-end network switch. The cabling is perfectly structured following international standards, showing a modular and professional cable management system. The lighting is soft and neutral, highlighting the metallic textures of the networking hardware against a clean, monochromatic industrial background." src="media/images/service_infrastructure.webp">
@@ -190,8 +185,7 @@
         </p>
         <a href="soporte.html" class="border border-outline text-primary px-6 py-2 font-label-caps text-label-caps uppercase hover:bg-secondary-container hover:text-on-primary transition-all text-center inline-block">Consultas y Soportes</a>
       </div>
-      
-      <!-- Service 3: Optimización de redes -->
+
       <div class="md:col-span-12 bg-surface-container-lowest border border-outline-variant p-base md:p-10 flex flex-col md:flex-row-reverse gap-10 items-center group transition-all">
         <div class="w-full md:w-1/2">
           <div class="flex items-center gap-4 mb-6">
@@ -218,8 +212,7 @@
         </div>
       </div>
     </div>
-    
-    <!-- Technical Specification Section -->
+
     <section class="mb-20">
       <h3 class="font-label-caps text-label-caps text-secondary mb-8 border-b border-outline-variant pb-2">CAPACIDADES TÉCNICAS</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
@@ -241,8 +234,7 @@
       </div>
     </section>
   </main>
-  
-  <!-- Footer -->
+
   <footer class="bg-surface-container-low dark:bg-primary-container full-width bottom-0 border-t border-outline-variant dark:border-outline">
     <div class="grid grid-cols-1 md:grid-cols-5 gap-gutter px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
       <div class="flex flex-col gap-4">
@@ -317,7 +309,6 @@
       });
     }
 
-    // Cart badge updater
     function updateCartBadge() {
       const cart = JSON.parse(localStorage.getItem('cart') || '[]');
       const count = cart.reduce((acc, item) => acc + item.quantity, 0);
